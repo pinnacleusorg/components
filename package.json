@@ -1,6 +1,17 @@
 {
-  "name": "quip",
+  "name": "@pinnacleusorg/quisp",
   "version": "0.0.1",
+  "author": {
+    "name": "pinnacle",
+    "email": "ivy@pinnacle.us.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinnacleusorg/quisp.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/pinnacleusorg"
+  },
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

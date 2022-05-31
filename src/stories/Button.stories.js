@@ -1,4 +1,4 @@
-import Button from './Button.svelte';
+import Button from '../lib/Button.svelte';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 // More on argTypes: https://storybook.js.org/docs/svelte/api/argtypes
@@ -6,15 +6,9 @@ export default {
   title: 'Example/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    label: { control: 'text' },
-    onClick: { action: 'onClick' },
-    primary: { control: 'boolean' },
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-    },
-  },
+    type: { control: 'select', options: ['submit', 'reset'] },
+    fallback: { control: 'text' }
+  }
 };
 
 // More on component templates: https://storybook.js.org/docs/svelte/writing-stories/introduction#using-args
@@ -29,23 +23,11 @@ const Template = (args) => ({
 // More on args: https://storybook.js.org/docs/svelte/writing-stories/args
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  type: 'submit',
+  fallback: 'Submit',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+  fallback: 'Cancel',
 };

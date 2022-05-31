@@ -29,5 +29,6 @@ Primary.args = {
 
 export const Secondary = Template.bind({});
 Secondary.args = {
+  type: 'reset',
   fallback: 'Cancel',
 };

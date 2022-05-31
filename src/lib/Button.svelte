@@ -1,11 +1,10 @@
-
 <script>
-  import "./global.css";
-	export let type = "submit";
-  export let fallback = "null";
+	import './css/global.css';
+	export let type = 'submit';
+	export let fallback = 'null';
 </script>
 
-<button type="{type}" class="button" on:click>
+<button {type} class="button" on:click>
 	<slot>{fallback}</slot>
 </button>
 
@@ -21,8 +20,8 @@
 
 		transition-duration: 0.2s;
 	}
-  .button:hover {
-    background-color: var(--gold);
-    color: var(--bg-light);
-  }
+	.button:hover {
+		background-color: var(--gold);
+		color: var(--bg-light);
+	}
 </style>

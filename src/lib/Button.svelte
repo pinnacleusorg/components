@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import './css/global.css';
 	export let type = 'submit';
 	export let fallback = 'null';
@@ -8,7 +8,7 @@
 	<slot>{fallback}</slot>
 </button>
 
-<style>
+<style lang="scss">
 	.button {
 		background-color: transparent;
 		border: 3px solid var(--gold);
@@ -19,9 +19,10 @@
 		padding: 8px 50px;
 
 		transition-duration: 0.2s;
-	}
-	.button:hover {
-		background-color: var(--gold);
-		color: var(--bg-light);
+
+		&:hover {
+			background-color: var(--gold);
+			color: var(--bg-light);
+		}
 	}
 </style>

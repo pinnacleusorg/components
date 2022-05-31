@@ -60,6 +60,7 @@
     "@lukeed/uuid": "^2.0.0",
     "@storybook/addon-svelte-csf": "^2.0.4",
     "cookie": "^0.4.1",
+    "sass": "^1.52.1",
     "svelte2tsx": "^0.5.10"
   }
 }

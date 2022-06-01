@@ -8,7 +8,7 @@
 </button>
 
 <style lang="scss">
-	@import './global.scss';
+	@import './scss/global.scss';
 
 	.button {
 		background-color: transparent;

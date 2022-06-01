@@ -51,8 +51,8 @@
 </div>
 
 <style lang="scss">
-	@import './global.scss';
-	@import './coverable.scss';
+	@import './scss/global.scss';
+	@import './scss/coverable.scss';
 
 	.input {
 		display: flex;

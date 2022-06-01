@@ -12,6 +12,7 @@
 
 	h3 {
 		color: $gold;
+		font-weight: normal;
 	}
 
 	.subgroup {

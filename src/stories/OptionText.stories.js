@@ -1,7 +1,7 @@
 import OptionText from '../lib/OptionText.svelte';
 
 export default {
-  title: 'QUISP/OptionText',
+  title: 'Options/OptionText',
   component: OptionText,
   argTypes: {
     id: { control: 'text' },

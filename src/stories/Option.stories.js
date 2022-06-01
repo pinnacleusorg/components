@@ -2,7 +2,7 @@ import OptionCheckView from './views/OptionCheckView.svelte';
 import OptionRadioView from './views/OptionRadioView.svelte';
 
 export default {
-  title: 'QUISP/Option',
+  title: 'Options/Option',
   component: OptionRadioView,
   argTypes: {
     active: { control: 'boolean' },

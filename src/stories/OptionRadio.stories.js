@@ -1,7 +1,7 @@
 import OptionRadio from '../lib/OptionRadio.svelte';
 
 export default {
-  title: 'QUISP/OptionRadio',
+  title: 'Options/OptionRadio',
   component: OptionRadio,
   argTypes: {
     id: { control: 'text' },

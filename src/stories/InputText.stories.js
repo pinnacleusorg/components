@@ -1,7 +1,7 @@
 import InputText from '../lib/InputText.svelte';
 
 export default {
-  title: 'QUISP/InputText',
+  title: 'Inputs/InputText',
   component: InputText,
   argTypes: {
     active: { control: 'boolean' },

@@ -1,7 +1,7 @@
 import InputTextLines from '../lib/InputTextLines.svelte';
 
 export default {
-  title: 'QUISP/InputTextLines',
+  title: 'Inputs/InputTextLines',
   component: InputTextLines,
   argTypes: {
     active: { control: 'boolean' },

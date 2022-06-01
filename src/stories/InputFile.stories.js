@@ -3,7 +3,7 @@ import InputFile from '../lib/InputFile.svelte';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 // More on argTypes: https://storybook.js.org/docs/svelte/api/argtypes
 export default {
-  title: 'QUISP/InputFile',
+  title: 'Inputs/InputFile',
   component: InputFile,
   argTypes: {
     active: { control: 'boolean' },

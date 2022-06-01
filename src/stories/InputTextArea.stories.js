@@ -1,7 +1,7 @@
 import InputTextArea from '../lib/InputTextArea.svelte';
 
 export default {
-  title: 'QUISP/InputTextArea',
+  title: 'Inputs/InputTextArea',
   component: InputTextArea,
   argTypes: {
     active: { control: 'boolean' },

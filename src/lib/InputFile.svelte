@@ -56,6 +56,7 @@
 
 	.input {
 		display: flex;
+		align-items: center;
 		column-gap: 6%;
 		width: 100%;
 

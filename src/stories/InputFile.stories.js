@@ -22,15 +22,15 @@ const Template = (args) => ({
 });
 
 // More on args: https://storybook.js.org/docs/svelte/writing-stories/args
-export const Primary = Template.bind({});
-Primary.args = {
+export const Active = Template.bind({});
+Active.args = {
   active: true,
   label: 'Resume',
   name: 'Upload Resume',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const Inactive = Template.bind({});
+Inactive.args = {
   active: false,
   label: 'Resume',
   name: 'Upload Resume',

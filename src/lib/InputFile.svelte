@@ -2,6 +2,8 @@
 	import Button from './Button.svelte';
 	export let label: string;
 	export let name: string;
+	export let placeholder: string;
+
 	export let active: boolean;
 
 	let fname = '';
@@ -45,7 +47,7 @@
 		{#if val.length > 1}
 			{fname}
 		{:else}
-			Upload Resume
+			{placeholder}
 		{/if}
 	</Button>
 </div>

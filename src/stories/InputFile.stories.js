@@ -8,7 +8,8 @@ export default {
   argTypes: {
     active: { control: 'boolean' },
     label: { control: 'text' },
-    name: { control: 'text' }
+    name: { control: 'text' },
+    placeholder: { control: 'text' },
   }
 };
 
@@ -26,12 +27,14 @@ export const Active = Template.bind({});
 Active.args = {
   active: true,
   label: 'Resume',
-  name: 'Upload Resume',
+  name: 'resume',
+  placeholder: 'Upload Resume',
 };
 
 export const Inactive = Template.bind({});
 Inactive.args = {
   active: false,
   label: 'Resume',
-  name: 'Upload Resume',
+  name: 'resume',
+  placeholder: 'Upload Resume',
 };

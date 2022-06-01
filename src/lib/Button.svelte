@@ -1,10 +1,10 @@
 <script lang="ts">
 	export let type = 'submit';
-	export let fallback = 'null';
+	export let title = '';
 </script>
 
 <button {type} class="button" on:click>
-	<slot>{fallback}</slot>
+	<slot>{title}</slot>
 </button>
 
 <style lang="scss">
@@ -15,7 +15,6 @@
 		border: 3px solid $gold;
 		border-radius: 5px;
 		color: $gold;
-		font-family: inherit;
 		margin: -5px 0;
 		padding: 8px 50px;
 

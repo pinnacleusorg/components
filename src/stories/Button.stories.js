@@ -7,7 +7,7 @@ export default {
   component: Button,
   argTypes: {
     type: { control: 'select', options: ['submit', 'reset'] },
-    fallback: { control: 'text' }
+    title: { control: 'text' }
   }
 };
 
@@ -24,11 +24,11 @@ const Template = (args) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   type: 'submit',
-  fallback: 'Submit',
+  title: 'Submit',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   type: 'reset',
-  fallback: 'Cancel',
+  title: 'Cancel',
 };

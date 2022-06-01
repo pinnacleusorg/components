@@ -65,7 +65,7 @@
 		}
 
 		&:not(:checked) ~ input {
-			display: none;
+			visibility: hidden;
 		}
 
 		&:checked ~ .content {

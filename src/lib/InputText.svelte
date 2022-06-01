@@ -34,7 +34,6 @@
 
 			margin: 0;
 			padding: 0 8px;
-			padding-bottom: 6px;
 
 			&::placeholder {
 				color: transparentize($gold, 0.4);

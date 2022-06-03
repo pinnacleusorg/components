@@ -2,6 +2,7 @@
 	export let label: string;
 	export let name: string;
 	export let placeholder: string;
+	export let type = 'text';
 
 	export let active: boolean;
 </script>
@@ -11,7 +12,7 @@
 		<span class="cover" class:activate={active} />
 		<span class="content">{label}</span>
 	</label>
-	<input id={name} type="text" {name} {placeholder} required />
+	<input id={name} {type} {name} {placeholder} required />
 </div>
 
 <style lang="scss">

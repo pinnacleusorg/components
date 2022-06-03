@@ -3,6 +3,8 @@
 	export let name: string;
 	export let placeholder: string;
 
+	export let options: string[];
+
 	export let active: boolean;
 </script>
 
@@ -11,7 +13,11 @@
 		<span class="cover" class:activate={active} />
 		<span class="content">{label}</span>
 	</label>
-	<textarea id={name} type="text" {name} {placeholder} rows="10" required class:activate={active} />
+	<select id={name} type="date" {name} {placeholder} required>
+		{#each options as option}
+			<option value={option}>{option}</option>
+		{/each}
+	</select>
 </div>
 
 <style lang="scss">
@@ -20,39 +26,24 @@
 
 	.input {
 		display: flex;
-		flex-direction: column;
-		row-gap: 30px;
+		column-gap: 6%;
 		width: 100%;
 
-		.covered-label {
-			width: 100%;
-			position: relative;
-		}
-
-		textarea {
+		select {
 			background: none;
-			border: 3px solid $gold;
+			border: none;
+			border-bottom: 3px solid $gold;
+			border-radius: 0;
 			color: $gold;
-			font-family: inherit;
 
 			flex: 1 1;
 			outline: none;
 
 			margin: 0;
-			padding: 20px;
-
-			max-height: 0;
-			opacity: 0;
-			transition: all 2s 1s;
-			resize: vertical;
+			padding: 0 8px;
 
 			&::placeholder {
 				color: transparentize($gold, 0.4);
-			}
-
-			&.activate {
-				max-height: 500px;
-				opacity: 1;
 			}
 		}
 	}

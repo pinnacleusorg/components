@@ -18,7 +18,7 @@
 	<div class="desc">
 		<slot name="description" />
 	</div>
-	<div class="indent" class:activate={active}><slot /></div>
+	<div class="indent" class:activate={_active}><slot /></div>
 </div>
 
 <style lang="scss">

@@ -12,7 +12,7 @@
 		<div>
 			<span class="spacer" />
 			<span class="cover" class:activate={_active} />
-			<span>{title}</span>
+			<span class="content">{title}</span>
 		</div>
 	</h3>
 	<div class="desc">

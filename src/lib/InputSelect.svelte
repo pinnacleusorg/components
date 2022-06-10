@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ScrollHandler } from './internal/scrollHandler';
+	import { scroll } from './scroll';
 
 	export let label: string;
 	export let name: string;
@@ -8,12 +8,13 @@
 	export let options: string[];
 
 	export let active = false;
-	$: sh = new ScrollHandler(active);
+	let el: HTMLElement;
+	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="input" bind:this={sh.el}>
+<div class="input" bind:this={el}>
 	<label class="covered-label" for={name}>
-		<span class="cover" class:activate={sh._active} />
+		<span class="cover" class:activate={_active} />
 		<span class="content">{label}</span>
 	</label>
 	<select id={name} type="date" {name} {placeholder} required>

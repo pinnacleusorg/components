@@ -1,16 +1,17 @@
 <script lang="ts">
-	import { ScrollHandler } from './internal/scrollHandler';
-
+	import { scroll } from './scroll';
 	export let title: string;
+
 	export let active = false;
-	$: sh = new ScrollHandler(active);
+	let el: HTMLElement;
+	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="group" bind:this={sh.el}>
+<div class="group" bind:this={el}>
 	<h3>
 		<div>
 			<span class="spacer" />
-			<span class="cover" class:activate={sh._active} />
+			<span class="cover" class:activate={_active} />
 			<span>{title}</span>
 		</div>
 	</h3>

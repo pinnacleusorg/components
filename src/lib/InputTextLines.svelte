@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { ScrollHandler } from './internal/scrollHandler';
+	import { scroll } from './scroll';
 	export let label: string;
 	export let name: string;
 	export let placeholder: string;
 
 	export let active = false;
-	$: sh = new ScrollHandler(active);
+	let el: HTMLElement;
+	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 
 	let lines: string[] = [];
 
@@ -16,9 +17,9 @@
 	}
 </script>
 
-<div class="input" bind:this={sh.el}>
+<div class="input" bind:this={el}>
 	<label class="covered-label" for={name}>
-		<span class="cover" class:activate={sh._active} />
+		<span class="cover" class:activate={_active} />
 		<span class="content">{label}</span>
 	</label>
 	<div>

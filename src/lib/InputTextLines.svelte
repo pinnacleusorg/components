@@ -56,8 +56,9 @@
 			flex: 1 1;
 			outline: none;
 
+			height: 100%;
 			margin: 0;
-			padding: 0 8px;
+			padding: 3px 8px;
 
 			&::placeholder {
 				color: transparentize($gold, 0.4);

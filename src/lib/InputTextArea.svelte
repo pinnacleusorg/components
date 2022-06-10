@@ -15,7 +15,15 @@
 		<span class="cover" class:activate={_active} />
 		<span class="content">{label}</span>
 	</label>
-	<textarea id={name} type="text" {name} {placeholder} rows="10" required class:activate={active} />
+	<textarea
+		id={name}
+		type="text"
+		{name}
+		{placeholder}
+		rows="10"
+		required
+		class:activate={_active}
+	/>
 </div>
 
 <style lang="scss">

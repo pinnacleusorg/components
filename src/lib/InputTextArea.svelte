@@ -5,6 +5,10 @@
 	export let name: string;
 	export let placeholder: string;
 
+	let input: HTMLTextAreaElement;
+	$: characters = input ? input.value.length : 0;
+	const change = () => (characters = input.value.length);
+
 	export let active = false;
 	let el: HTMLElement;
 	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
@@ -23,7 +27,11 @@
 		rows="10"
 		required
 		class:activate={_active}
+		maxlength="1000"
+		bind:this={input}
+		on:keydown={change}
 	/>
+	<p class="limiter">{characters}/1000</p>
 </div>
 
 <style lang="scss">
@@ -35,6 +43,15 @@
 		flex-direction: column;
 		row-gap: 30px;
 		width: 100%;
+		position: relative;
+
+		.limiter {
+			color: $gold;
+			position: absolute;
+			top: calc(100% + 5px);
+			right: 0;
+			opacity: 0.5;
+		}
 
 		.covered-label {
 			width: 100%;

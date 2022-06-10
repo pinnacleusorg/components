@@ -1,16 +1,19 @@
 <script lang="ts">
+	import { ScrollHandler } from './internal/scrollHandler';
+
 	export let label: string;
 	export let name: string;
 	export let placeholder: string;
 
 	export let options: string[];
 
-	export let active: boolean;
+	export let active = false;
+	$: sh = new ScrollHandler(active);
 </script>
 
-<div class="input">
+<div class="input" bind:this={sh.el}>
 	<label class="covered-label" for={name}>
-		<span class="cover" class:activate={active} />
+		<span class="cover" class:activate={sh._active} />
 		<span class="content">{label}</span>
 	</label>
 	<select id={name} type="date" {name} {placeholder} required>

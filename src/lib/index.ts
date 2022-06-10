@@ -12,3 +12,5 @@ export {default as OptionCheckbox} from "./OptionCheckbox.svelte";
 export {default as OptionGroup} from "./OptionGroup.svelte";
 export {default as OptionRadio} from "./OptionRadio.svelte";
 export {default as OptionText} from "./OptionText.svelte";
+
+export {scroll} from "./scroll";

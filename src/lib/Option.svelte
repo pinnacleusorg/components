@@ -1,13 +1,16 @@
 <script lang="ts">
+	import { ScrollHandler } from './internal/scrollHandler';
+
 	export let title: string;
-	export let active: boolean;
+	export let active = false;
+	$: sh = new ScrollHandler(active);
 </script>
 
-<div class="group">
+<div class="group" bind:this={sh.el}>
 	<h3>
 		<div>
 			<span class="spacer" />
-			<span class="cover" class:activate={active} />
+			<span class="cover" class:activate={sh._active} />
 			<span>{title}</span>
 		</div>
 	</h3>

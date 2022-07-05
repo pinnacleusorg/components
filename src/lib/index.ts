@@ -3,6 +3,7 @@ export {default as Button} from "./Button.svelte";
 export {default as InputDate} from "./InputDate.svelte";
 export {default as InputFile} from "./InputFile.svelte";
 export {default as InputSelect} from "./InputSelect.svelte";
+export {default as InputSelectOption} from "./InputSelectOption.svelte";
 export {default as InputText} from "./InputText.svelte";
 export {default as InputTextArea} from "./InputTextArea.svelte";
 export {default as InputTextLines} from "./InputTextLines.svelte";

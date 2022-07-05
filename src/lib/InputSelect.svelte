@@ -5,8 +5,6 @@
 	export let name: string;
 	export let placeholder: string;
 
-	export let options: string[];
-
 	export let active = false;
 	let el: HTMLElement;
 	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
@@ -18,9 +16,7 @@
 		<span class="content">{label}</span>
 	</label>
 	<select id={name} type="date" {name} {placeholder} required>
-		{#each options as option}
-			<option value={option}>{option}</option>
-		{/each}
+		<slot />
 	</select>
 </div>
 
@@ -34,6 +30,7 @@
 		width: 100%;
 
 		select {
+			appearance: none;
 			background: none;
 			border: none;
 			border-bottom: 3px solid $gold;

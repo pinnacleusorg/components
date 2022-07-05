@@ -1,19 +1,18 @@
-import InputSelect from '../lib/InputSelect.svelte';
+import InputSelectView from './views/InputSelectView.svelte';
 
 export default {
   title: 'Inputs/InputSelect',
-  component: InputSelect,
+  component: InputSelectView,
   argTypes: {
     active: { control: 'boolean' },
     label: { control: 'text' },
     name: { control: 'text' },
-    placeholder: { control: 'text' },
-    options: { control: 'array' },
+    placeholder: { control: 'text' }
   }
 };
 
 const Template = (args) => ({
-  Component: InputSelect,
+  Component: InputSelectView,
   props: args
 });
 
@@ -22,8 +21,7 @@ Active.args = {
   active: true,
   label: 'What is your shirt size?',
   name: 'name',
-  placeholder: 'Name',
-  options: ["Option 1", "Option 2", "Option 3"]
+  placeholder: 'Name'
 };
 
 export const Inactive = Template.bind({});
@@ -31,6 +29,5 @@ Inactive.args = {
   active: false,
   label: 'What is your shirt size?',
   name: 'name',
-  placeholder: 'Name',
-  options: ["Option 1", "Option 2", "Option 3"]
+  placeholder: 'Name'
 };

@@ -1,7 +1,13 @@
 
+// Iter. v2 colors
 $bg: #1e1e1e;
-$bg-light: #fafafa;
+$black: #000;
+$white: #fff;
+$grey: #f3f3f3;
 $gold: #c79d5e;
+
+$bg: $bg;
+$bg-light: #fafafa;
 
 * {
 	font-family: CasperRegular, sans-serif;

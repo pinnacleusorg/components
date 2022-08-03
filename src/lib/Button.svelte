@@ -1,9 +1,10 @@
 <script lang="ts">
+	export let color = 'gold';
 	export let type = 'submit';
 	export let title = '';
 </script>
 
-<button {type} class="button" on:click>
+<button {type} class="button {color}" on:click>
 	<slot>{title}</slot>
 </button>
 
@@ -12,17 +13,44 @@
 
 	.button {
 		background-color: transparent;
-		border: 3px solid $gold;
-		border-radius: 5px;
+		border: 2px solid $gold;
+		border-radius: 0;
 		color: $gold;
+		font-size: 1rem;
 		margin: -5px 0;
-		padding: 8px 50px;
+		padding: 12px 55px;
 
 		transition-duration: 0.2s;
 
 		&:hover {
 			background-color: $gold;
 			color: $bg-light;
+		}
+
+		&.black {
+			background-color: $black;
+			border-color: $black;
+			color: $grey;
+
+			&:hover {
+				background-color: lighten($black, 20);
+				border-color: lighten($black, 20);
+			}
+		}
+
+		&.black-outline {
+			background-color: transparent;
+			border-color: $black;
+			color: $black;
+
+			&:hover {
+				background-color: lighten($black, 20);
+			}
+		}
+
+		&:active {
+			background-color: $gold !important;
+			color: $bg-light !important;
 		}
 	}
 </style>

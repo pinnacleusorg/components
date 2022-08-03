@@ -6,6 +6,7 @@ export default {
   title: 'QUISP/Button',
   component: Button,
   argTypes: {
+    color: { control: 'select', options: ['gold-outline', 'black', 'black-outline']},
     type: { control: 'select', options: ['submit', 'reset'] },
     title: { control: 'text' }
   }
@@ -23,12 +24,14 @@ const Template = (args) => ({
 // More on args: https://storybook.js.org/docs/svelte/writing-stories/args
 export const Primary = Template.bind({});
 Primary.args = {
+  color: 'gold-outline',
   type: 'submit',
   title: 'Submit',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
+  color: 'gold-outline',
   type: 'reset',
   title: 'Cancel',
 };

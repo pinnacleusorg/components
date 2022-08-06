@@ -22,16 +22,23 @@ const Template = (args) => ({
 });
 
 // More on args: https://storybook.js.org/docs/svelte/writing-stories/args
-export const Primary = Template.bind({});
-Primary.args = {
+export const GoldOutline = Template.bind({});
+GoldOutline.args = {
   color: 'gold-outline',
   type: 'submit',
   title: 'Submit',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  color: 'gold-outline',
+export const BlackOutline = Template.bind({});
+BlackOutline.args = {
+  color: 'black-outline',
+  type: 'reset',
+  title: 'Cancel',
+};
+
+export const Black = Template.bind({});
+Black.args = {
+  color: 'black',
   type: 'reset',
   title: 'Cancel',
 };

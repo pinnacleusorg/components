@@ -8,6 +8,7 @@ QUISP is a UI library containing components used across Pinnacle web services as
 
 `npm run storybook`
 
-## Package
+## Package & Publish
 
 `npm run package`
+`npm publish ./package`

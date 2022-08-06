@@ -6,9 +6,6 @@ $white: #fff;
 $grey: #f3f3f3;
 $gold: #c79d5e;
 
-$bg: $bg;
-$bg-light: #fafafa;
-
 * {
 	font-family: CasperRegular, sans-serif;
 	font-size: 1rem;
@@ -22,5 +19,5 @@ $bg-light: #fafafa;
 
 ::selection {
 	background: $gold;
-	color: $bg-light;
+	color: $grey;
 }

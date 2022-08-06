@@ -24,7 +24,7 @@
 
 		&:hover {
 			background-color: $gold;
-			color: $bg-light;
+			color: $grey;
 		}
 
 		&.black {
@@ -50,7 +50,7 @@
 
 		&:active {
 			background-color: $gold !important;
-			color: $bg-light !important;
+			color: $grey !important;
 		}
 	}
 </style>

@@ -16,8 +16,8 @@
 		border: 2px solid $gold;
 		border-radius: 0;
 		color: $gold;
-		margin: -5px 0;
-		padding: 12px 55px;
+		margin: 0;
+		padding: 0.6rem 3rem;
 
 		transition-duration: 0.2s;
 

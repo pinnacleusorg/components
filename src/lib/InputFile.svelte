@@ -46,13 +46,15 @@
 	</label>
 	<input id={name} type="file" accept="application/pdf" on:change={translateFile} required />
 	<input type="hidden" {name} bind:value={val} />
-	<Button type="button" on:click={openFileDialog}>
-		{#if val.length > 1}
-			{fname}
-		{:else}
-			{placeholder}
-		{/if}
-	</Button>
+	<span class="uploader">
+		<Button type="button" on:click={openFileDialog}>
+			{#if val.length > 1}
+				{fname}
+			{:else}
+				{placeholder}
+			{/if}
+		</Button>
+	</span>
 </div>
 
 <style lang="scss">
@@ -67,6 +69,10 @@
 
 		input {
 			display: none;
+		}
+
+		.uploader :global * {
+			font-size: 16px;
 		}
 	}
 </style>

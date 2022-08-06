@@ -6,15 +6,13 @@ $white: #fff;
 $grey: #f3f3f3;
 $gold: #c79d5e;
 
+:root {
+	font-size: 20px;
+}
+
 * {
 	font-family: CasperRegular, sans-serif;
 	font-size: 1rem;
-}
-
-@media (min-width: 512px) {
-	* {
-		font-size: 1.3rem;
-	}
 }
 
 ::selection {

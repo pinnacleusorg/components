@@ -16,7 +16,6 @@
 		border: 2px solid $gold;
 		border-radius: 0;
 		color: $gold;
-		font-size: 1rem;
 		margin: -5px 0;
 		padding: 12px 55px;
 

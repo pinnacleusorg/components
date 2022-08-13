@@ -1,10 +1,16 @@
 
 // Iter. v2 colors
 $bg: #1e1e1e;
-$black: #000;
 $white: #fff;
-$grey: #f3f3f3;
 $gold: #c79d5e;
+$blue: #36567a;
+
+$adjust-minor: 5;
+$adjust-major: 15;
+
+// Helper colors
+$black: darken($bg, $adjust-minor);
+$grey: darken($white, $adjust-minor);
 
 :root {
 	font-size: 20px;

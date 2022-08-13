@@ -47,7 +47,7 @@
 	<input id={name} type="file" accept="application/pdf" on:change={translateFile} required />
 	<input type="hidden" {name} bind:value={val} />
 	<span class="uploader">
-		<Button type="button" on:click={openFileDialog}>
+		<Button type="button" on:click={openFileDialog} small>
 			{#if val.length > 1}
 				{fname}
 			{:else}
@@ -69,10 +69,6 @@
 
 		input {
 			display: none;
-		}
-
-		.uploader :global * {
-			font-size: 16px;
 		}
 	}
 </style>

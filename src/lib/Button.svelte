@@ -2,10 +2,12 @@
 	export let color = 'gold';
 	export let type = 'submit';
 	export let title = '';
+	export let small = false;
 </script>
 
-<button {type} class="button {color}" on:click>
-	<slot>{title}</slot>
+<button {type} class="button {color}" class:small on:click>
+	<span class="expander" />
+	<span class="text"><slot>{title}</slot></span>
 </button>
 
 <style lang="scss">
@@ -17,13 +19,42 @@
 		border-radius: 0;
 		color: $gold;
 		margin: 0;
-		padding: 0.6rem 3rem;
+		min-width: 10rem;
+		padding: 0.6rem 2rem;
 
+		position: relative;
 		transition-duration: 0.2s;
 
-		&:hover {
+		&.small {
+			padding: 0.4rem 2rem;
+
+			.text {
+				font-size: 0.9rem;
+			}
+		}
+
+		.expander {
 			background-color: $gold;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+
+			width: 0%;
+			transition: 0.3s;
+		}
+
+		.text {
+			position: relative;
+			z-index: 1;
+		}
+
+		&:hover {
 			color: $grey;
+
+			.expander {
+				width: 100%;
+			}
 		}
 
 		&.black {
@@ -31,9 +62,11 @@
 			border-color: $black;
 			color: $grey;
 
+			.expander {
+				background-color: lighten($black, $adjust-major);
+			}
 			&:hover {
-				background-color: lighten($black, 20);
-				border-color: lighten($black, 20);
+				border-color: lighten($black, $adjust-major);
 			}
 		}
 
@@ -42,14 +75,20 @@
 			border-color: $black;
 			color: $black;
 
-			&:hover {
-				background-color: lighten($black, 20);
+			.expander {
+				background-color: darken($white, $adjust-major);
 			}
 		}
 
 		&:active {
-			background-color: $gold !important;
+			border-color: $gold !important;
 			color: $grey !important;
+			transition-duration: 0.1s;
+
+			.expander {
+				background-color: $gold !important;
+				transition-duration: 0.1s;
+			}
 		}
 	}
 </style>

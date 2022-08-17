@@ -19,8 +19,6 @@
 </label>
 
 <style lang="scss">
-	@import './scss/global.scss';
-
 	label {
 		display: flex;
 		flex-direction: row-reverse;

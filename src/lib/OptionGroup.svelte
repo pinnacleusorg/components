@@ -8,8 +8,6 @@
 </div>
 
 <style lang="scss">
-	@import './scss/global.scss';
-
 	h3 {
 		color: $gold;
 		font-weight: normal;

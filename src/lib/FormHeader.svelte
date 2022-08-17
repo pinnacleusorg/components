@@ -12,8 +12,6 @@
 </div>
 
 <style lang="scss">
-	@import './scss/global.scss';
-
 	h2 {
 		color: $gold;
 		font-family: KeplerStd, serif;

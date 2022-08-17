@@ -58,7 +58,6 @@
 </div>
 
 <style lang="scss">
-	@import './scss/global.scss';
 	@import './scss/coverable.scss';
 
 	.input {

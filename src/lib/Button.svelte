@@ -11,8 +11,6 @@
 </button>
 
 <style lang="scss">
-	@import './scss/global.scss';
-
 	.button {
 		background-color: transparent;
 		border: 2px solid $gold;

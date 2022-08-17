@@ -1,10 +1,8 @@
 
 import preprocess from 'svelte-preprocess';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
+	// https://github.com/sveltejs/svelte-preprocess
 	preprocess: preprocess({
 		scss: {
 			prependData: "@import './scss/global.scss';@import './scss/mixins.scss';"

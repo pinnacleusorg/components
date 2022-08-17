@@ -13,7 +13,7 @@
 
 	.covered-label {
 		background-color: $gold;
-		border-bottom: 3px solid $gold;
+		border-bottom: 2px solid $gold;
 		display: flex;
 		justify-content: flex-end;
 		height: max-content;
@@ -24,9 +24,11 @@
 .content {
 	background-color: $bg;
 	color: $gold;
-	padding: 3px 0;
-	padding-left: 10px;
-	padding-right: 5px;
+	display: grid;
+	place-items: center;
+	height: 1.65rem;
+	padding-left: 0.5rem;
+	padding-right: 0.25rem;
 }
 
 .cover {

@@ -26,10 +26,10 @@
 		transition-duration: 0.2s;
 
 		&.small {
-			padding: 0.4rem 2rem;
+			padding: 0.3rem 2rem;
 
 			.text {
-				font-size: 0.9rem;
+				font-size: 0.85rem;
 			}
 		}
 

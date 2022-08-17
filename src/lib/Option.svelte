@@ -48,12 +48,13 @@
 			}
 
 			span:last-child {
-				border-bottom: 3px solid $gold;
+				border-bottom: 2px solid $gold;
 				color: $gold;
-				display: block;
+				display: grid;
+				place-items: center;
 				min-width: 30px;
-				padding-left: 10px;
-				padding-right: 5px;
+				padding-left: 0.5rem;
+				padding-right: 0.25rem;
 				white-space: nowrap;
 			}
 		}

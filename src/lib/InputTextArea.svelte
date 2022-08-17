@@ -60,7 +60,7 @@
 
 		textarea {
 			background: none;
-			border: 3px solid $gold;
+			border: 2px solid $gold;
 			color: $gold;
 			font-family: inherit;
 

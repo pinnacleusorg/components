@@ -33,7 +33,7 @@
 			appearance: none;
 			background: none;
 			border: none;
-			border-bottom: 3px solid $gold;
+			border-bottom: 2px solid $gold;
 			border-radius: 0;
 			color: $gold;
 

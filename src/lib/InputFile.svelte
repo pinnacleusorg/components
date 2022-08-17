@@ -61,10 +61,7 @@
 	@import './scss/coverable.scss';
 
 	.input {
-		display: flex;
 		align-items: center;
-		column-gap: 6%;
-		width: 100%;
 
 		input {
 			display: none;

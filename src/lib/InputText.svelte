@@ -23,10 +23,6 @@
 	@import './scss/coverable.scss';
 
 	.input {
-		display: flex;
-		column-gap: 6%;
-		width: 100%;
-
 		input {
 			background: none;
 			border: none;

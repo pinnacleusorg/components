@@ -38,11 +38,8 @@
 	@import './scss/coverable.scss';
 
 	.input {
-		display: flex;
 		flex-direction: column;
 		row-gap: 30px;
-		width: 100%;
-		position: relative;
 
 		.limiter {
 			color: $gold;

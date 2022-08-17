@@ -8,7 +8,8 @@ export default {
   argTypes: {
     color: { control: 'select', options: ['gold-outline', 'black', 'black-outline']},
     type: { control: 'select', options: ['submit', 'reset'] },
-    title: { control: 'text' }
+    title: { control: 'text' },
+    href: { control: 'text' }
   }
 };
 

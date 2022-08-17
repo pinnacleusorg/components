@@ -3,22 +3,37 @@
 	export let type = 'submit';
 	export let title = '';
 	export let small = false;
+
+	// a present href turns this element into a link
+	export let href = '';
 </script>
 
-<button {type} class="button {color}" class:small on:click>
-	<span class="expander" />
-	<span class="text"><slot>{title}</slot></span>
-</button>
+{#if href}
+	<a {type} {href} class="button {color}" class:small on:click>
+		<span class="expander" />
+		<span class="text"><slot>{title}</slot></span>
+	</a>
+{:else}
+	<button {type} class="button {color}" class:small on:click>
+		<span class="expander" />
+		<span class="text"><slot>{title}</slot></span>
+	</button>
+{/if}
 
 <style lang="scss">
 	.button {
 		background-color: transparent;
 		border: 2px solid $gold;
 		border-radius: 0;
+		box-sizing: border-box;
 		color: $gold;
+		display: inline-block;
 		margin: 0;
 		min-width: 10rem;
 		padding: 0.6rem 2rem;
+
+		text-align: center;
+		text-decoration: none;
 
 		position: relative;
 		transition-duration: 0.2s;

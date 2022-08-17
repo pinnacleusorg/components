@@ -35,9 +35,8 @@
 </div>
 
 <style lang="scss">
-	@import './scss/coverable.scss';
-
 	.input {
+		@include input(textarea);
 		flex-direction: column;
 		row-gap: 30px;
 
@@ -55,25 +54,15 @@
 		}
 
 		textarea {
-			background: none;
 			border: 2px solid $gold;
-			color: $gold;
 			font-family: inherit;
 
-			flex: 1 1;
-			outline: none;
-
-			margin: 0;
+			max-height: 0;
 			padding: 20px;
 
-			max-height: 0;
 			opacity: 0;
 			transition: all 2s 1s;
 			resize: vertical;
-
-			&::placeholder {
-				color: transparentize($gold, 0.4);
-			}
 
 			&.activate {
 				max-height: 500px;

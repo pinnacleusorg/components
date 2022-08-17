@@ -3,7 +3,7 @@ module.exports = {
     const svelteLoader = config.module.rules.find( (r) => r.loader && r.loader.includes('svelte-loader'))
     svelteLoader.options.preprocess = require('svelte-preprocess')({
       scss: {
-        prependData: "@import './scss/global.scss';"
+        prependData: "@import './scss/global.scss';@import './scss/mixins.scss';"
       }
     })
     return config

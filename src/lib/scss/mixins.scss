@@ -1,0 +1,80 @@
+
+@keyframes widthReveal {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+
+@mixin input($type: input) {
+	display: flex;
+	column-gap: 6%;
+	width: 100%;
+
+	position: relative;
+
+	.covered-label {
+		@include covered-label;
+	}
+
+	#{$type} {
+		background: none;
+		border: none;
+		border-bottom: 2px solid $gold;
+		border-radius: 0;
+		color: $gold;
+
+		flex: 1 1;
+		outline: none;
+
+		margin: 0;
+		padding: 0 8px;
+
+		&::placeholder {
+			color: transparentize($gold, 0.4);
+		}
+	}
+}
+
+@mixin covered-label {
+	background-color: $gold;
+	border-bottom: 2px solid $gold;
+	display: flex;
+	justify-content: flex-end;
+	height: max-content;
+	width: 30%;
+
+	.cover {
+		@include cover;
+	}
+
+	.content {
+		@include content;
+	}
+}
+
+@mixin cover {
+	background-color: $gold;
+	display: block;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+
+	&.activate {
+		animation: widthReveal 1.5s ease-in-out forwards;
+	}
+}
+
+@mixin content {
+	background-color: $bg;
+	color: $gold;
+	display: grid;
+	place-items: center;
+	height: 1.65rem;
+	padding-left: 0.5rem;
+	padding-right: 0.25rem;
+}

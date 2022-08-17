@@ -7,7 +7,7 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess({
 		scss: {
-			prependData: "@import './scss/global.scss';"
+			prependData: "@import './scss/global.scss';@import './scss/mixins.scss';"
 		}
 	}
 	),

@@ -22,8 +22,6 @@
 </div>
 
 <style lang="scss">
-	@import './scss/coverable.scss';
-
 	.group {
 		margin: 3rem 0;
 	}
@@ -46,7 +44,12 @@
 				min-width: 30px;
 			}
 
+			.cover {
+				@include cover;
+			}
+
 			span:last-child {
+				@include content;
 				border-bottom: 2px solid $gold;
 				color: $gold;
 				display: grid;

@@ -58,9 +58,8 @@
 </div>
 
 <style lang="scss">
-	@import './scss/coverable.scss';
-
 	.input {
+		@include input;
 		align-items: center;
 
 		input {

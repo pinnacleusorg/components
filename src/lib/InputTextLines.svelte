@@ -32,9 +32,9 @@
 </div>
 
 <style lang="scss">
-	@import './scss/coverable.scss';
-
 	.input {
+		@include input;
+
 		> div {
 			display: flex;
 			flex-direction: column;
@@ -43,21 +43,7 @@
 		}
 
 		input {
-			background: none;
-			border: none;
-			border-bottom: 2px solid $gold;
-			color: $gold;
-
-			flex: 1 1;
-			outline: none;
-
 			min-height: 1.65rem;
-			margin: 0;
-			padding: 0 8px;
-
-			&::placeholder {
-				color: transparentize($gold, 0.4);
-			}
 		}
 	}
 </style>

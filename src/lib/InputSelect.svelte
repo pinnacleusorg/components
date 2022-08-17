@@ -21,26 +21,11 @@
 </div>
 
 <style lang="scss">
-	@import './scss/coverable.scss';
-
 	.input {
+		@include input(select);
+
 		select {
 			appearance: none;
-			background: none;
-			border: none;
-			border-bottom: 2px solid $gold;
-			border-radius: 0;
-			color: $gold;
-
-			flex: 1 1;
-			outline: none;
-
-			margin: 0;
-			padding: 0 8px;
-
-			&::placeholder {
-				color: transparentize($gold, 0.4);
-			}
 		}
 	}
 </style>

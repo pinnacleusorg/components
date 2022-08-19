@@ -3,7 +3,7 @@ import FormHeader from '../lib/FormHeader.svelte';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 // More on argTypes: https://storybook.js.org/docs/svelte/api/argtypes
 export default {
-  title: 'QUISP/FormHeader',
+  title: 'Elements/FormHeader',
   component: FormHeader,
   argTypes: {
     active: { control: 'boolean' },

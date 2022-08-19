@@ -6,4 +6,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ["QUISP", "Elements", "Inputs", "Options"]
+    }
+  }
 }

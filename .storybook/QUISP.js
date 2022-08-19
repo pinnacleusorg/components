@@ -7,29 +7,29 @@ export default create({
   colorSecondary: '#c79d5e',
 
   // UI
-  appBg: '#1e1e1e',
-  appContentBg: '#1e1e1e',
+  appBg: '#fff',
+  appContentBg: '#fff',
   appBorderColor: '#000',
-  appBorderRadius: 4,
+  appBorderRadius: 2,
 
   // Typography
   fontBase: '"Noto Sans", sans-serif',
   fontCode: 'monospace',
 
   // Text colors
-  textColor: '#c79d5e',
-  textInverseColor: 'rgba(255,255,255,0.9)',
+  textColor: '#000',
+  textInverseColor: '#fff',
 
   // Toolbar default and active colors
-  barTextColor: '#aaa',
-  barSelectedColor: '#ccc',
-  barBg: '#1e1e1e',
+  barTextColor: '#333',
+  barSelectedColor: '#c79d5e',
+  barBg: '#fff',
 
   // Form colors
-  inputBg: '#1e1e1e',
-  inputBorder: '#c79d5e',
-  inputTextColor: '#c79d5e',
-  inputBorderRadius: 4,
+  inputBg: '#fff',
+  inputBorder: '#777',
+  inputTextColor: '#333',
+  inputBorderRadius: 2,
 
   brandTitle: 'Pinnacle UI',
   brandTarget: '_self',

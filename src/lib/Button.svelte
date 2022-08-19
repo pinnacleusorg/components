@@ -27,10 +27,15 @@
 		border-radius: 0;
 		box-sizing: border-box;
 		color: $gold;
-		display: inline-block;
+
+		display: grid;
+		place-items: center;
+		line-height: 1;
+
 		margin: 0;
-		min-width: 10rem;
 		padding: 0.6rem 2rem;
+		min-width: 10rem;
+		width: max-content;
 
 		text-align: center;
 		text-decoration: none;

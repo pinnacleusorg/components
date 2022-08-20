@@ -10,7 +10,7 @@ export default create({
   appBg: '#fff',
   appContentBg: '#fff',
   appBorderColor: '#000',
-  appBorderRadius: 2,
+  appBorderRadius: 10,
 
   // Typography
   fontBase: '"Noto Sans", sans-serif',
@@ -31,6 +31,7 @@ export default create({
   inputTextColor: '#333',
   inputBorderRadius: 2,
 
+  brandImage: 'https://static.pinnacle.us.org/2021/assets/textLogo.png',
   brandTitle: 'Pinnacle UI',
   brandTarget: '_self',
 });

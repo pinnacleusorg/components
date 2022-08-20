@@ -1,20 +1,15 @@
 <script lang="ts">
-	import { scroll } from './scroll';
+	import Label from './Label.svelte';
 
 	export let label: string;
 	export let name: string;
 	export let placeholder: string;
 
 	export let active = false;
-	let el: HTMLElement;
-	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="input" bind:this={el}>
-	<label class="covered-label" for={name}>
-		<span class="cover" class:activate={_active} />
-		<span class="content">{label}</span>
-	</label>
+<div class="input">
+	<Label forId={name} {active}>{label}</Label>
 	<select id={name} type="date" {name} {placeholder} required>
 		<slot />
 	</select>

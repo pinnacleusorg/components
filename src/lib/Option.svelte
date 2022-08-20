@@ -1,24 +1,16 @@
 <script lang="ts">
-	import { scroll } from './scroll';
+	import Label from './Label.svelte';
 	export let title: string;
 
 	export let active = false;
-	let el: HTMLElement;
-	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="group" bind:this={el}>
-	<h3>
-		<div>
-			<span class="spacer" />
-			<span class="cover" class:activate={_active} />
-			<span class="content">{title}</span>
-		</div>
-	</h3>
+<div class="group">
+	<h3><Label forId="" inline={false} {active}>{title}</Label></h3>
 	<div class="desc">
 		<slot name="description" />
 	</div>
-	<div class="indent" class:activate={_active}><slot /></div>
+	<div class="indent"><slot /></div>
 </div>
 
 <style lang="scss">
@@ -26,40 +18,9 @@
 		margin: 3rem 0;
 	}
 
-	.group h3 {
-		display: flex;
-		font-weight: normal;
-		margin: 0;
+	:global .covered-label {
 		width: 100%;
 		position: relative;
-
-		div {
-			display: flex;
-			justify-content: flex-end;
-			min-width: 30%;
-
-			.spacer {
-				background-color: $gold;
-				flex: 1 1;
-				min-width: 30px;
-			}
-
-			.cover {
-				@include cover;
-			}
-
-			span:last-child {
-				@include content;
-				border-bottom: 2px solid $gold;
-				color: $gold;
-				display: grid;
-				place-items: center;
-				min-width: 30px;
-				padding-left: 0.5rem;
-				padding-right: 0.25rem;
-				white-space: nowrap;
-			}
-		}
 	}
 
 	.desc {
@@ -75,13 +36,6 @@
 		flex-direction: column;
 		row-gap: 5px;
 		margin-left: 30px;
-
-		opacity: 0;
-		transition: opacity 1s 0.5s;
-
-		&.activate {
-			opacity: 1;
-		}
 
 		@media (min-width: 512px) {
 			margin-left: 50px;

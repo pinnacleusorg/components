@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { scroll } from './scroll';
+	import Label from './Label.svelte';
 
 	export let label: string;
 	export let name: string;
@@ -10,15 +10,10 @@
 	const change = () => (characters = input.value.length);
 
 	export let active = false;
-	let el: HTMLElement;
-	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="input" bind:this={el}>
-	<label class="covered-label" for={name}>
-		<span class="cover" class:activate={_active} />
-		<span class="content">{label}</span>
-	</label>
+<div class="input">
+	<Label forId={name} {active}>{label}</Label>
 	<textarea
 		id={name}
 		type="text"
@@ -26,7 +21,6 @@
 		{placeholder}
 		rows="10"
 		required
-		class:activate={_active}
 		maxlength="1000"
 		bind:this={input}
 		on:keydown={change}
@@ -48,7 +42,7 @@
 			opacity: 0.5;
 		}
 
-		.covered-label {
+		:global .covered-label {
 			width: 100%;
 			position: relative;
 		}
@@ -56,18 +50,8 @@
 		textarea {
 			border: 2px solid $gold;
 			font-family: inherit;
-
-			max-height: 0;
 			padding: 20px;
-
-			opacity: 0;
-			transition: all 2s 1s;
 			resize: vertical;
-
-			&.activate {
-				max-height: 500px;
-				opacity: 1;
-			}
 		}
 	}
 </style>

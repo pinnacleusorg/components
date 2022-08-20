@@ -15,10 +15,6 @@
 
 	position: relative;
 
-	.covered-label {
-		@include covered-label;
-	}
-
 	#{$type} {
 		background: none;
 		border: none;
@@ -36,23 +32,6 @@
 		&::placeholder {
 			color: transparentize($gold, 0.4);
 		}
-	}
-}
-
-@mixin covered-label {
-	background-color: $gold;
-	border-bottom: 2px solid $gold;
-	display: flex;
-	justify-content: flex-end;
-	height: max-content;
-	width: 30%;
-
-	.cover {
-		@include cover;
-	}
-
-	.content {
-		@include content;
 	}
 }
 

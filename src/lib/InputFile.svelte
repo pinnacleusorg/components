@@ -1,13 +1,12 @@
 <script lang="ts">
 	import Button from './Button.svelte';
-	import { scroll } from './scroll';
+	import Label from './Label.svelte';
+
 	export let label: string;
 	export let name: string;
 	export let placeholder: string;
 
 	export let active = false;
-	let el: HTMLElement;
-	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 
 	let fname = '';
 	let val = '';
@@ -22,9 +21,7 @@
 				val = '';
 			}
 		};
-		reader.onerror = function (error) {
-			console.log('Error: ', error);
-		};
+		reader.onerror = (err) => console.error('Error: ', err);
 	}
 
 	function translateFile() {
@@ -39,11 +36,8 @@
 	}
 </script>
 
-<div class="input" bind:this={el}>
-	<label class="covered-label" for={name}>
-		<span class="cover" class:activate={_active} />
-		<span class="content">{label}</span>
-	</label>
+<div class="input">
+	<Label forId={name} {active}>{label}</Label>
 	<input id={name} type="file" accept="application/pdf" on:change={translateFile} required />
 	<input type="hidden" {name} bind:value={val} />
 	<span class="uploader">

@@ -1,18 +1,16 @@
 <script lang="ts">
-	import { scroll } from './scroll';
-
+	// Sets aria-label attribute
 	export let label: string;
+	// Input name used in FormData object
 	export let name: string;
+	// Displayed placeholder text
 	export let placeholder: string;
+	// Input type
 	export let type = 'text';
-
-	export let active = false;
-	let el: HTMLElement;
-	$: _active = active || $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="input" bind:this={el}>
-	<input id={name} {type} {name} {placeholder} required />
+<div class="input">
+	<input id={name} {type} {name} {placeholder} aria-label={label} required />
 </div>
 
 <style lang="scss">

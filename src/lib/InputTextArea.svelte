@@ -1,9 +1,15 @@
 <script lang="ts">
 	import Label from './Label.svelte';
 
+	// Displayed label text
 	export let label: string;
+	// Name in form data
 	export let name: string;
+	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
+	// Displayed placeholder text
 	export let placeholder: string;
+	// Maximum text length
+	export let maxlength = 1000;
 
 	let input: HTMLTextAreaElement;
 	$: characters = input ? input.value.length : 0;
@@ -13,19 +19,19 @@
 </script>
 
 <div class="input">
-	<Label forId={name} {active}>{label}</Label>
+	<Label forId={id} {active}>{label}</Label>
 	<textarea
-		id={name}
+		{id}
 		type="text"
 		{name}
 		{placeholder}
 		rows="10"
 		required
-		maxlength="1000"
+		{maxlength}
 		bind:this={input}
 		on:keydown={change}
 	/>
-	<p class="limiter">{characters}/1000</p>
+	<p class="limiter">{characters}/{maxlength}</p>
 </div>
 
 <style lang="scss">

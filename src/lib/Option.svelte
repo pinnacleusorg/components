@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Label from './Label.svelte';
+	// Displayed title of the group
 	export let title: string;
 
 	export let active = false;

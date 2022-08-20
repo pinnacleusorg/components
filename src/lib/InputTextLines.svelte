@@ -2,8 +2,12 @@
 	import { fade } from 'svelte/transition';
 	import Label from './Label.svelte';
 
+	// Displayed label text
 	export let label: string;
+	// Name in form data
 	export let name: string;
+	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
+	// Displayed placeholder text
 	export let placeholder: string;
 
 	export let active = false;
@@ -17,14 +21,20 @@
 </script>
 
 <div class="input">
-	<Label forId={name} {active}>{label}</Label>
+	<Label forId={id} {active}>{label}</Label>
 	<div>
-		<input type="text" {placeholder} bind:value={lines[0]} required />
+		<input type="text" aria-labelledby={id} {placeholder} bind:value={lines[0]} required />
 		{#each lines.filter(filterizer) as _, i}
-			<input type="text" {placeholder} bind:value={lines[i + 1]} transition:fade />
+			<input
+				type="text"
+				aria-labelledby={id}
+				{placeholder}
+				bind:value={lines[i + 1]}
+				transition:fade
+			/>
 		{/each}
 	</div>
-	<input type="hidden" id={name} {name} value={lines.join(',')} />
+	<input type="hidden" {id} {name} value={lines.join(', ')} />
 </div>
 
 <style lang="scss">

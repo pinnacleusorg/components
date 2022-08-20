@@ -2,8 +2,12 @@
 	import Button from './Button.svelte';
 	import Label from './Label.svelte';
 
+	// Displayed label text
 	export let label: string;
+	// Name in form data
 	export let name: string;
+	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
+	// Displayed placeholder text, pre-upload
 	export let placeholder: string;
 
 	export let active = false;
@@ -37,8 +41,8 @@
 </script>
 
 <div class="input">
-	<Label forId={name} {active}>{label}</Label>
-	<input id={name} type="file" accept="application/pdf" on:change={translateFile} required />
+	<Label forId={id} {active}>{label}</Label>
+	<input {id} type="file" accept="application/pdf" on:change={translateFile} required />
 	<input type="hidden" {name} bind:value={val} />
 	<span class="uploader">
 		<Button type="button" on:click={openFileDialog} small>

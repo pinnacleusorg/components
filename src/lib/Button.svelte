@@ -1,15 +1,18 @@
 <script lang="ts">
-	export let color = 'gold';
-	export let type = 'submit';
+	// Button display style
+	export let color: 'gold-outline' | 'black' | 'black-outline' = 'gold-outline';
+	// Button display text, can be omitted for slot content
 	export let title = '';
+	// Button type for forms
+	export let type = 'submit';
+	// Use compact styling
 	export let small = false;
-
-	// a present href turns this element into a link
+	// When present, this element becomes an anchor tag
 	export let href = '';
 </script>
 
 {#if href}
-	<a {type} {href} class="button {color}" class:small on:click>
+	<a {href} class="button {color}" class:small on:click>
 		<span class="expander" />
 		<span class="text"><slot>{title}</slot></span>
 	</a>

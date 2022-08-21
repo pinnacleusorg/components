@@ -1,4 +1,5 @@
 const preprocess = require('svelte-preprocess');
+const { mergeConfig } = require('vite');
 
 module.exports = {
   core: { builder: "@storybook/builder-vite" },
@@ -9,6 +10,13 @@ module.exports = {
         prependData: "@import './scss/global.scss';@import './scss/mixins.scss';"
       }
     }),
+  },
+  async viteFinal(config, { configType }) {
+    // return the customized config
+    return mergeConfig(config, {
+      // customize the Vite config here
+      base: "https://pinnacleusorg.github.io/quisp/"
+    });
   },
   stories: [
     // "../src/**/*.stories.mdx",

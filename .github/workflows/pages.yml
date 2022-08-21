@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: GitHub Pages
+name: GitHub Pages CI/CD
   
 on:
   # Runs on pushes targeting the default branch
@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: true
     
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,48 +30,9 @@ jobs:
           node-version: 16.x
       - run: npm i
       - run: npm run build-storybook
-      - name: Archive artifact
-        shell: bash
-        run: |
-          tar \
-            --dereference --hard-dereference \
-            --directory storybook-static \
-            -cvf ${{ runner.temp }}/artifact.tar \
-            --exclude=.git \
-            --exclude=.github \
-            .
-      - name: GZIP artifact
-        shell: bash
-        run: gzip ${{ runner.temp }}/artifact.tar
       - name: Upload artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-pages-artifact@main
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar.gz
-          retention-days: ${{ inputs.retention-days }}
-  # Single deploy job
-  deploy:
-    # Add a dependency to the build job
-    needs: build
-    # GH pages env
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v1
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          path: storybook-static
+          retention-days: 1

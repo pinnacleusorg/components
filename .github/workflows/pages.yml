@@ -30,7 +30,7 @@ jobs:
           node-version: 16.x
       - run: npm i
       - name: Edit storybook base path
-        run: echo "<base href=\"https://pinnacleusorg.github.io/quisp\/" />" >> .storybook/manager-head.html
+        run: echo "<base href=\"https://pinnacleusorg.github.io/quisp/\" />" >> .storybook/manager-head.html
       - run: npm run build-storybook
       - name: Upload artifact
         uses: actions/upload-pages-artifact@main

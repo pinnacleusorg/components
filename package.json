@@ -16,7 +16,7 @@
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "cross-env STORYBOOK_BASE_HREF=/quisp build-storybook"
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -37,7 +37,6 @@
     "@typescript-eslint/parser": "^5.10.1",
     "babel-loader": "^8.2.5",
     "cookie": "^0.4.1",
-    "cross-env": "^7.0.3",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-storybook": "^0.5.12",

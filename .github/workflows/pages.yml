@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Storybook to Pages
+name: GitHub Pages
   
 on:
   # Runs on pushes targeting the default branch
@@ -40,11 +40,14 @@ jobs:
             --exclude=.git \
             --exclude=.github \
             .
+      - name: GZIP artifact
+        shell: bash
+        run: gzip ${{ runner.temp }}/artifact.tar
       - name: Upload artifact
         uses: actions/upload-artifact@main
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
+          path: ${{ runner.temp }}/artifact.tar.gz
           retention-days: ${{ inputs.retention-days }}
   # Single deploy job
   deploy:
@@ -54,6 +57,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

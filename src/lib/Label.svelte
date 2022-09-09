@@ -21,7 +21,7 @@
 		justify-content: flex-end;
 		height: max-content;
 		min-width: 30%;
-		width: min-content;
+		width: max-content;
 
 		.spacer {
 			background-color: $gold;

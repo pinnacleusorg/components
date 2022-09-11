@@ -29,7 +29,7 @@
 	}
 
 	function translateFile() {
-		const inp = document.querySelector('#' + name) as HTMLInputElement;
+		const inp = document.querySelector('#' + id) as HTMLInputElement;
 		getBase64(inp.files![0]);
 	}
 

@@ -35,7 +35,7 @@
 
 	function openFileDialog(e: Event) {
 		e.stopPropagation();
-		(document.querySelector('#' + name) as HTMLElement).click();
+		(document.querySelector('#' + id) as HTMLElement).click();
 		return false;
 	}
 </script>

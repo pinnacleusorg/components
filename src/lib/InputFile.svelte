@@ -2,6 +2,8 @@
 	import Button from './Button.svelte';
 	import Label from './Label.svelte';
 
+	// Accepted file types
+	export let accept = "application/pdf";
 	// Displayed label text
 	export let label: string;
 	// Name in form data
@@ -42,7 +44,7 @@
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
-	<input {id} type="file" accept="application/pdf" on:change={translateFile} required />
+	<input {id} type="file" {accept} on:change={translateFile} required />
 	<input type="hidden" {name} bind:value={val} />
 	<span class="uploader">
 		<Button type="button" on:click={openFileDialog} small>

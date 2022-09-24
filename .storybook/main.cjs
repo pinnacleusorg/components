@@ -1,6 +1,9 @@
 const preprocess = require('svelte-preprocess');
 const { mergeConfig } = require('vite');
 
+// Base path gets inserted here with CI/CD
+const basePath = "";
+
 module.exports = {
   core: { builder: "@storybook/builder-vite" },
   svelteOptions: {
@@ -15,7 +18,7 @@ module.exports = {
     // return the customized config
     return mergeConfig(config, {
       // customize the Vite config here
-      base: "https://pinnacleusorg.github.io/quisp/"
+      base: basePath
     });
   },
   stories: [

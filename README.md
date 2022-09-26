@@ -10,5 +10,8 @@ QUISP is a UI library containing components used across Pinnacle web services as
 
 ## Package & Publish
 
-`npm run package`
-`npm publish ./package`
+1. Bump version Major.Minor.Patch in `package,json`
+2. git add -A && git commit -m "repo: version bump"
+3. git tag vMajor.Minor.Patch
+4. git push
+5. Package & publish handled automatically by CI

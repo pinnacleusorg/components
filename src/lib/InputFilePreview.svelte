@@ -2,18 +2,20 @@
 	import Label from './Label.svelte';
 
 	// Accepted file types
-	export let accept = "application/pdf";
+	export let accept = 'application/pdf';
 	// Displayed label text
 	export let label: string;
 	// Name in form data
 	export let name: string;
-	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Displayed placeholder text, pre-upload
 	export let placeholder: string;
 
+	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
+	$: hasItem = val.length > 1;
+
 	export let active = false;
 
-	$: isImage = accept === "image/*";
+	$: isImage = accept === 'image/*';
 
 	let fname = '';
 	let val = '';
@@ -47,14 +49,14 @@
 	<Label forId={id} {active}>{label}</Label>
 	<input {id} type="file" {accept} on:change={translateFile} required />
 	<input type="hidden" {name} bind:value={val} />
-	<button class="uploader" type="button" on:click={openFileDialog}>
+	<button class="uploader" type="button" class:hasItem on:click={openFileDialog}>
 		{#if val.length > 1}
 			<span>{fname} <b aria-label="replace with other file">✕</b></span>
 			{#if isImage}
-				<div class="image-border"></div>
-				<iframe class="isImage" src="{val}" title="{placeholder}" />
+				<div class="image-border" />
+				<iframe class="isImage" src={val} title={placeholder} />
 			{:else}
-				<iframe src="{val}" title="{placeholder}"></iframe>
+				<iframe src={val} title={placeholder} />
 			{/if}
 		{:else}
 			{placeholder}
@@ -72,19 +74,33 @@
 
 		.uploader {
 			background: none;
-			border: dashed 2px $gold;
+			border: dashed 3px $gold;
 			color: $gold;
-			min-height: 300px;
-			padding: 3rem;
+			height: 100px;
+			padding: 1rem;
 			flex: 1 1;
 
 			position: relative;
+
+			&.hasItem {
+				transition-duration: 1s;
+				height: 350px;
+
+				iframe {
+					filter: blur(2px);
+				}
+
+				span {
+					box-shadow: 0 0 1rem $bg;
+				}
+			}
 
 			span {
 				background-color: $bg;
 				border-radius: 0.25rem;
 				display: flex;
 				align-items: center;
+				font-size: 0.9rem;
 				padding: 0.5rem 1rem;
 				margin: 0 auto;
 				width: max-content;
@@ -118,6 +134,7 @@
 				margin: 0.5rem;
 				height: calc(100% - 1rem);
 				width: calc(100% - 1rem);
+				pointer-events: none;
 
 				&.isImage {
 					-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);

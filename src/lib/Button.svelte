@@ -4,7 +4,7 @@
 	// Button display text, can be omitted for slot content
 	export let title = '';
 	// Button type for forms
-	export let type = 'submit';
+	export let type: 'submit' | 'reset' | 'button' | null | undefined = 'submit';
 	// Use compact styling
 	export let small = false;
 	// When present, this element becomes an anchor tag

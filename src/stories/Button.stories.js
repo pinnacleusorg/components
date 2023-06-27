@@ -3,7 +3,7 @@ import Button from '../lib/Button.svelte';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 // More on argTypes: https://storybook.js.org/docs/svelte/api/argtypes
 export default {
-	title: 'Elements/Button',
+	title: 'Inputs/Button',
 	component: Button,
 	argTypes: {
 		color: { control: 'select', options: ['gold-outline', 'black', 'black-outline'] },

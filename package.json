@@ -24,7 +24,6 @@
     "@lukeed/uuid": "^2.0.0",
     "@storybook/addon-docs": "^7.0.24",
     "@storybook/addon-essentials": "^7.0.24",
-    "@storybook/addon-mdx-gfm": "^7.0.24",
     "@storybook/svelte": "^7.0.24",
     "@storybook/sveltekit": "^7.0.24",
     "@storybook/theming": "^7.0.24",

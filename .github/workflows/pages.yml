@@ -24,13 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-      - run: npm i
-      - name: Edit storybook manager base path
-        run: sed -i '5s/.*/const\ basePath="https:\/\/pinnacleusorg.github.io\/quisp"/' .storybook/main.cjs
+          node-version: 20.x
+      - run: npm ci
       - name: Edit storybook base path
         run: echo "<base href=\"https://pinnacleusorg.github.io/quisp/\" />" >> .storybook/manager-head.html
       - run: npm run build-storybook

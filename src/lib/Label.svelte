@@ -10,12 +10,12 @@
 <label class="covered-label" for={forId} bind:this={el}>
 	{#if !inline}<span class="spacer" />{/if}
 	<span class="cover" class:activate={_active} />
+	<span class="backing" />
 	<span class="content"><slot /></span>
 </label>
 
 <style lang="scss">
 	.covered-label {
-		background-color: $gold;
 		border-bottom: 2px solid $gold;
 		display: flex;
 		justify-content: flex-end;
@@ -24,6 +24,12 @@
 		width: max-content;
 
 		.spacer {
+			background-color: $gold;
+			flex: 1 1;
+			min-width: 30px;
+		}
+
+		.backing {
 			background-color: $gold;
 			flex: 1 1;
 			min-width: 30px;

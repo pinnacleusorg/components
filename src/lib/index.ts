@@ -1,6 +1,7 @@
 export { default as Button } from "./Button.svelte";
 
 export { default as FormHeader } from "./FormHeader.svelte";
+export { default as FormSection } from "./FormSection.svelte";
 export { default as PinnacleLogo } from "./PinnacleLogo.svelte";
 export { default as PinnacleIcon } from "./PinnacleIcon.svelte";
 

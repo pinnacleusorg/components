@@ -29,6 +29,28 @@ export const Default = {
 		byline: 'The Olympics of Hackathons',
 		bylineColor: 'gold',
 		showByline: true,
+		showIcon: false
+	}
+};
+
+export const WordMark = {
+	render: Template,
+
+	args: {
+		byline: '',
+		bylineColor: 'gold',
+		showByline: false,
+		showIcon: false
+	}
+};
+
+export const TeamApp = {
+	render: Template,
+
+	args: {
+		byline: 'Team Application',
+		bylineColor: 'gold',
+		showByline: true,
 		showIcon: true
 	}
 };

@@ -28,10 +28,10 @@
 	}
 	.logo {
 		max-width: 100%;
+		margin-bottom: 2rem;
 		width: 4rem;
 	}
 	.label {
-		margin-top: 2rem;
 		max-width: 16rem;
 	}
 
@@ -42,6 +42,7 @@
 		letter-spacing: 1.2px;
 		max-width: 100%;
 		margin-top: 1rem;
+		margin-bottom: 0;
 
 		&.white {
 			color: $white;
@@ -56,7 +57,6 @@
 			width: 6rem;
 		}
 		.label {
-			margin-top: 2rem;
 			max-width: 25rem;
 		}
 		.byline {

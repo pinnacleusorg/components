@@ -15,4 +15,4 @@ jobs:
       - run: npm run package
       - name: login to npm
         run: touch .npmrc && echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-      - run: npm publish ./package
+      - run: npm publish ./dist

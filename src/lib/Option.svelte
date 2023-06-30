@@ -19,6 +19,11 @@
 		margin: 3rem 0;
 	}
 
+	h3 {
+		color: $gold;
+		font-weight: 400;
+	}
+
 	:global .covered-label {
 		width: 100%;
 		position: relative;

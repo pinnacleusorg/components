@@ -10,7 +10,7 @@
 <style lang="scss">
 	h3 {
 		color: $gold;
-		font-weight: normal;
+		font-weight: 400;
 	}
 
 	.subgroup {

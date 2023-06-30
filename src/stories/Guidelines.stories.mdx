@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="QUISP/Guidelines" />
+
+# Guidelines
+
+While components are generally flexible and reusable, they are expected to be typically used in a certain way. This section describes the guidelines for using components.
+
+## General Elements
+
+- Form header elements are generally expected to appear in the order:
+  - Header
+  - Section
+  - Section
+- Form header elements should generally be used in longer vertical forms.
+
+## Inputs
+
+- Buttons are flexible and can be used in a variety of ways.
+- Input\* elements are fairly self-contained, but are expected to appear within a \<form\> element.
+- Input\* elements are currently expected to be used in a vertical form.
+
+## Options
+
+- Options are expected to be used within a \<form\> element.
+- Options are expected to be used in a vertical form.
+- Treat Option* elements like Input* elements in usage.
+- Option\* elements are meant to be nested in container elements like OptionGroup and Option.
+- Nesting order may look like:
+
+```md
+- Option
+  - OptionGroup
+    - OptionCheck
+    - OptionCheck
+    - OptionCheck
+  - OptionGroup
+    - OptionRadio
+    - OptionRadio
+    - OptionRadio
+```
+
+- Alternatively:
+
+```md
+- Option
+  - OptionCheck
+  - OptionCheck
+  - OptionCheck
+```
+
+## Data
+
+- Data elements are conceptually expected to be used within a tabular data context.
+- They may be used outside of an explicit table element.

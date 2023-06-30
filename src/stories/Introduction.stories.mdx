@@ -2,12 +2,42 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="QUISP/Introduction" />
 
-# Introduction to QUISP
+# Introduction
 
-QUISP is Pinnacle's internal UI library, featuring shared components used across our services. Common elements like buttons, navigation utilities, and form controls should be shared.
+QUISP (Quick UI for Svelte at Pinnacle) is a UI component library written using Svelte, which can be consumed by other Svelte projects in the organization. It is designed to house all reused and potentially reusable components across all of our projects, with the ability to modify styles going forward. The library is aligned with Pinnacle's semver system, where v3.0.0 corresponds to Pinnacle's 2023 event.
 
-## ^3.0.0
+Features:
 
-QUISP adheres to Pinnacle's aligned versioning, so v3.0.0 will correspond to v3.0.0 / 2023 versions of other projects.
+- A collection of reusable, flexible branding-approved UI components
+- Easy to update styles for new and old projects
+- Versioned using Pinnacle's aligned semver system
 
-QUISP 3 uses Pinnacle version 3 branding.
+<br />
+
+## Getting Started
+
+<br />
+
+### Installation
+
+QUISP is available as an npm package.
+
+```bash
+// with npm
+npm install @pinnacleusorg/quisp
+
+// with yarn
+yarn add @pinnacleusorg/quisp
+```
+
+### Usage
+
+QUISP is designed to be consumed by other Svelte projects. To use a component, simply import the component you want to use from the package.
+
+```svelte
+<script lang="ts">
+	import { Button } from '@pinnacleusorg/quisp';
+</script>
+```
+
+Component names directly align to the names presented in the component list in the sidebar.

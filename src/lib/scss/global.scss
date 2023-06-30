@@ -11,6 +11,7 @@ $adjust-major: 20;
 // Helper colors
 $black: darken($bg, $adjust-minor);
 $grey: darken($white, $adjust-minor);
+$grey-dark: lighten($black, $adjust-major * 2);
 
 :root {
 	font-size: 20px;

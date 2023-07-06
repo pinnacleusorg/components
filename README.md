@@ -8,10 +8,13 @@ PCL is a Svelte UI library containing components used across Pinnacle web servic
 
 `npm run storybook`
 
+## Usage
+
+[See Storybook for usage examples.](https://pinnacleusorg.github.io/components/)
+
 ## Package & Publish
 
-1. Bump version Major.Minor.Patch in `package.json`
+1. bump version Major.Minor.Patch in `package.json`
 2. git add -A && git commit -m "repo: version bump"
-3. git tag vMajor.Minor.Patch
 4. git push
-5. Package & publish handled automatically by CI
+5. tag, package & publish handled automatically by CI

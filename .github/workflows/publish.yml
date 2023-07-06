@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20.x
-      - run: npm ci
+      - run: npm i
       - run: npm run package
       - name: login to npm
         run: touch .npmrc && echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc

@@ -1,13 +1,13 @@
 {
-  "name": "@pinnacleusorg/quisp",
-  "version": "3.0.1",
+  "name": "@pinnacleusorg/components",
+  "version": "3.0.3",
   "author": {
     "name": "pinnacle",
     "email": "ivy@pinnacle.us.org"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pinnacleusorg/quisp.git"
+    "url": "https://github.com/pinnacleusorg/components.git"
   },
   "scripts": {
     "package": "svelte-package && cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md",

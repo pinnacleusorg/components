@@ -22,7 +22,6 @@
 	<Label forId={id} {active}>{label}</Label>
 	<textarea
 		{id}
-		type="text"
 		{name}
 		{placeholder}
 		rows="10"

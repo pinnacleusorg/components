@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Button from './Button.svelte';
 	import Label from './Label.svelte';
 
 	// Accepted file types
-	export let accept = "application/pdf";
+	export let accept = 'application/pdf';
 	// Displayed label text
 	export let label: string;
 	// Name in form data
@@ -11,11 +12,13 @@
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Displayed placeholder text, pre-upload
 	export let placeholder: string;
+	// Initial set value as data URL (1-way binding)
+	export let value: string = '';
 
 	export let active = false;
 
-	let fname = '';
-	let val = '';
+	$: fname = value ? 'Already Uploaded' : '';
+	$: val = value;
 	function getBase64(file: File) {
 		var reader = new FileReader();
 		reader.readAsDataURL(file);

@@ -9,6 +9,8 @@
 	export let name: string;
 	// Displayed placeholder text, pre-upload
 	export let placeholder: string;
+	// Initial set value as data URL (1-way binding)
+	export let value: string = '';
 
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	$: hasItem = val.length > 1;
@@ -17,8 +19,8 @@
 
 	$: isImage = accept === 'image/*';
 
-	let fname = '';
-	let val = '';
+	$: fname = value ? 'Already Uploaded' : '';
+	$: val = value;
 	function getBase64(file: File) {
 		var reader = new FileReader();
 		reader.readAsDataURL(file);

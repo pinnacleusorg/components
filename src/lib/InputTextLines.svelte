@@ -9,14 +9,25 @@
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Displayed placeholder text
 	export let placeholder: string;
+	// Maximum number of extra lines
+	export let max: number = 20;
 
 	export let active = false;
 
+	// lines is the backing datastore for the input
+	// showLines is what gets displayed to the user
 	let lines: string[] = [];
+	$: limit = Math.min(max, lines.filter(filterizer).length);
+	$: showLines = lines.filter(filterizer).slice(0, limit);
 
+	// removes all empty lines
 	function filterizer(v: string, i: number) {
 		if (v) return true;
-		else return false;
+		for (; i < lines.length; i++) {
+			lines[i] = lines[i + 1];
+			if (!lines[i]) delete lines[i];
+		}
+		return true;
 	}
 </script>
 
@@ -24,7 +35,7 @@
 	<Label forId={id} {active}>{label}</Label>
 	<div>
 		<input type="text" aria-labelledby={id} {placeholder} bind:value={lines[0]} required />
-		{#each lines.filter(filterizer) as _, i}
+		{#each showLines as _, i}
 			<input
 				type="text"
 				aria-labelledby={id}
@@ -34,7 +45,7 @@
 			/>
 		{/each}
 	</div>
-	<input type="hidden" {id} {name} value={lines.join(', ')} />
+	<input type="hidden" {id} {name} value={showLines.join(', ')} />
 </div>
 
 <style lang="scss">

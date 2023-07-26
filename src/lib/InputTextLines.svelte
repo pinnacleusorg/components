@@ -8,16 +8,17 @@
 	export let name: string;
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Displayed placeholder text
-	export let placeholder: string;
-	// Maximum number of extra lines
-	export let max: number = 20;
+	export let placeholder: string | string[];
+	$: placeholderArr = [placeholder].flat();
+	// Maximum number of total lines
+	export let maxLines: number = 20;
 
 	export let active = false;
 
 	// lines is the backing datastore for the input
 	// showLines is what gets displayed to the user
 	let lines: string[] = [];
-	$: limit = Math.min(max, lines.filter(filterizer).length);
+	$: limit = Math.min(maxLines - 1, lines.filter(filterizer).length);
 	$: showLines = lines.filter(filterizer).slice(0, limit);
 
 	// removes all empty lines
@@ -34,12 +35,18 @@
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
 	<div>
-		<input type="text" aria-labelledby={id} {placeholder} bind:value={lines[0]} required />
+		<input
+			type="text"
+			aria-labelledby={id}
+			placeholder={placeholderArr[0]}
+			bind:value={lines[0]}
+			required
+		/>
 		{#each showLines as _, i}
 			<input
 				type="text"
 				aria-labelledby={id}
-				{placeholder}
+				placeholder={placeholderArr[i + 1] || placeholderArr[0]}
 				bind:value={lines[i + 1]}
 				transition:fade
 			/>

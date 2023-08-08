@@ -10,6 +10,8 @@
 	export let placeholder: string;
 	// Maximum text length
 	export let maxlength = 1000;
+	// Initial set value (1-way binding)
+	export let value: string = '';
 
 	let input: HTMLTextAreaElement;
 	$: characters = input ? input.value.length : 0;
@@ -29,6 +31,7 @@
 		{maxlength}
 		bind:this={input}
 		on:keydown={change}
+		{value}
 	/>
 	<p class="limiter">{characters}/{maxlength}</p>
 </div>

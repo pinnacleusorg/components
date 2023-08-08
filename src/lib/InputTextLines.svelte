@@ -12,12 +12,14 @@
 	$: placeholderArr = [placeholder].flat();
 	// Maximum number of total lines
 	export let maxLines: number = 20;
+	// Initial set value (1-way binding) as CSV
+	export let value: string = '';
 
 	export let active = false;
 
 	// lines is the backing datastore for the input
 	// showLines is what gets displayed to the user
-	let lines: string[] = [];
+	$: lines = value.split(',');
 	$: limit = Math.min(maxLines - 1, lines.filter(filterizer).length);
 	$: showLines = lines.filter(filterizer).slice(0, limit);
 

@@ -5,10 +5,11 @@
 	export let id: string;
 	export let label: string;
 	export let name: string;
+	export let checked: boolean = false;
 </script>
 
 <label for={id}>
-	<input {id} {name} value={id} type="checkbox" checked={false} />
+	<input {id} {name} value={id} type="checkbox" {checked} />
 	<span>{label}</span>
 	<span class="checked"><Checked /></span>
 	<span class="checknt"><Checknt /></span>

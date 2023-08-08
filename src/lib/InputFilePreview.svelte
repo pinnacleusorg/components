@@ -49,7 +49,7 @@
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
-	<input {id} type="file" {accept} on:change={translateFile} required />
+	<input {id} type="file" {accept} on:change={translateFile} required={!hasItem} />
 	<input type="hidden" {name} bind:value={val} />
 	<button class="uploader" type="button" class:hasItem on:click={openFileDialog}>
 		{#if val.length > 1}

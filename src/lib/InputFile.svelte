@@ -9,11 +9,13 @@
 	export let label: string;
 	// Name in form data
 	export let name: string;
-	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Displayed placeholder text, pre-upload
 	export let placeholder: string;
 	// Initial set value as data URL (1-way binding)
 	export let value: string = '';
+
+	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
+	$: hasItem = val.length > 1;
 
 	export let active = false;
 
@@ -47,7 +49,7 @@
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
-	<input {id} type="file" {accept} on:change={translateFile} required />
+	<input {id} type="file" {accept} on:change={translateFile} required={!hasItem} />
 	<input type="hidden" {name} bind:value={val} />
 	<span class="uploader">
 		<Button type="button" on:click={openFileDialog} small>

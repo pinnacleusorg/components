@@ -42,6 +42,8 @@ PCL is designed to be consumed by other Svelte projects. To use a component, sim
 
 Component names directly align to the names presented in the component list in the sidebar.
 
+Many input elements have a `value` prop, which is used to set the value of the input. This prop should always be treated as one-way bound, meaning that the value of the input can be set by the parent component only. Do not bind the value.
+
 ### Versioning
 
 PCL is versioned using Pinnacle's aligned semver system (major.minor.patch). The major version is aligned with the current year's event (e.g. v3.x.x correlates with Pinnacle 2023) and therefore also that year's branding guidelines. This allows for easy identification of project statuses along with their corresponding event year.

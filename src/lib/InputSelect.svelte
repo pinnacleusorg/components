@@ -12,7 +12,7 @@
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
-	<select {id} type="date" {name} required>
+	<select {id} {name} required>
 		<slot />
 	</select>
 </div>

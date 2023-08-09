@@ -139,8 +139,8 @@
 				pointer-events: none;
 
 				&.isImage {
-					-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-					clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+					-webkit-clip-path: circle(50% at 50% 50%);
+					clip-path: circle(50% at 50% 50%);
 					width: 294px;
 					height: 294px;
 					margin: auto;
@@ -155,10 +155,9 @@
 				bottom: 0;
 				left: 0;
 				right: 0;
-				-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-				clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-				width: 300px;
-				height: 300px;
+				border-radius: 50%;
+				width: 305px;
+				height: 305px;
 				margin: auto;
 			}
 		}

@@ -51,7 +51,7 @@
 	<Label forId={id} {active}>{label}</Label>
 	<input {id} type="file" {accept} on:change={translateFile} required={!hasItem} />
 	<input type="hidden" {name} bind:value={val} />
-	<button class="uploader" type="button" class:hasItem on:click={openFileDialog}>
+	<button class="uploader" type="button" class:hasItem class:isImage on:click={openFileDialog}>
 		{#if val.length > 1}
 			<span>{fname} <b aria-label="replace with other file">✕</b></span>
 			{#if isImage}
@@ -94,6 +94,10 @@
 
 				span {
 					box-shadow: 0 0 1rem $bg;
+				}
+
+				&.isImage {
+					height: 300px;
 				}
 			}
 
@@ -141,8 +145,8 @@
 				&.isImage {
 					-webkit-clip-path: circle(50% at 50% 50%);
 					clip-path: circle(50% at 50% 50%);
-					width: 294px;
-					height: 294px;
+					width: 250px;
+					height: 250px;
 					margin: auto;
 				}
 			}
@@ -156,8 +160,8 @@
 				left: 0;
 				right: 0;
 				border-radius: 50%;
-				width: 305px;
-				height: 305px;
+				width: 260px;
+				height: 260px;
 				margin: auto;
 			}
 		}

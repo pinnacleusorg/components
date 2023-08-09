@@ -10,6 +10,8 @@
 	export let placeholder: string;
 	// Maximum text length
 	export let maxlength = 1000;
+	// Is required
+	export let required = true;
 	// Initial set value (1-way binding)
 	export let value: string = '';
 
@@ -27,7 +29,7 @@
 		{name}
 		{placeholder}
 		rows="10"
-		required
+		{required}
 		{maxlength}
 		bind:this={input}
 		on:keydown={change}

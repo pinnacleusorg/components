@@ -10,6 +10,8 @@
 	export let placeholder: string;
 	// Input type
 	export let type = 'text';
+	// Is required
+	export let required = true;
 	// Initial set value (1-way binding)
 	export let value: string = '';
 
@@ -18,7 +20,7 @@
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
-	<input {id} {type} {name} {placeholder} {value} required />
+	<input {id} {type} {name} {placeholder} {value} {required} />
 </div>
 
 <style lang="scss">

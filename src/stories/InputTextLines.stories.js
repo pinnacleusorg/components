@@ -7,7 +7,8 @@ export default {
 		active: { control: 'boolean' },
 		label: { control: 'text' },
 		name: { control: 'text' },
-		placeholder: { control: 'text' }
+		placeholder: { control: 'text' },
+		suggestions: { control: 'array' }
 	}
 };
 

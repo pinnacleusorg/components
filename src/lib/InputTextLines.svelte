@@ -14,6 +14,8 @@
 	export let maxLines: number = 20;
 	// Initial set value (1-way binding) as CSV
 	export let value: string = '';
+	// Suggestions for autocomplete
+	export let suggestions: string[] = [];
 
 	export let active = false;
 
@@ -42,6 +44,7 @@
 			aria-labelledby={id}
 			placeholder={placeholderArr[0]}
 			bind:value={lines[0]}
+			list="{id}-datalist"
 			required
 		/>
 		{#each showLines as _, i}
@@ -50,11 +53,17 @@
 				aria-labelledby={id}
 				placeholder={placeholderArr[i + 1] || placeholderArr[0]}
 				bind:value={lines[i + 1]}
+				list="{id}-datalist"
 				transition:fade
 			/>
 		{/each}
 	</div>
 	<input type="hidden" {id} {name} value={showLines.join(', ')} />
+	<datalist id="{id}-datalist">
+		{#each suggestions as s}
+			<option value={s} />
+		{/each}
+	</datalist>
 </div>
 
 <style lang="scss">

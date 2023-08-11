@@ -8,6 +8,7 @@ export { default as PinnacleIcon } from "./PinnacleIcon.svelte";
 export { default as Input } from "./Input.svelte";
 export { default as InputFile } from "./InputFile.svelte";
 export { default as InputFilePreview } from "./InputFilePreview.svelte";
+export { default as InputOption } from "./InputOption.svelte";
 export { default as InputSelect } from "./InputSelect.svelte";
 export { default as InputSelectOption } from "./InputSelectOption.svelte";
 export { default as InputText } from "./InputText.svelte";

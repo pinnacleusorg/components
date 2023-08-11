@@ -7,7 +7,7 @@
 	export let name: string;
 	export let value = id;
 	export let checked: boolean = false;
-	export let required = true;
+	export let required = false;
 </script>
 
 <label for={id}>

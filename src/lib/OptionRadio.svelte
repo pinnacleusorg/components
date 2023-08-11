@@ -11,7 +11,7 @@
 
 <label for={id}>
 	<input {id} {name} type="radio" {value} bind:group required />
-	<span>{label} {group}</span>
+	<span>{label}</span>
 	<span class="checked"><Checked /></span>
 	<span class="checknt"><Checknt /></span>
 </label>

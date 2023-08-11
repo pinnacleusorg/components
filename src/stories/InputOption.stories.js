@@ -7,8 +7,10 @@ export default {
 		active: { control: 'boolean' },
 		label: { control: 'text' },
 		name: { control: 'text' },
-		type: { control: 'text' },
-		options: { control: 'array' }
+		type: { control: 'select', options: ['checkbox', 'radio'] },
+		other: { control: 'boolean' },
+		options: { control: 'array' },
+		value: { control: 'text' }
 	}
 };
 
@@ -27,8 +29,10 @@ export const Active = {
 		active: true,
 		label: 'Links',
 		name: 'links',
-		type: 'radio',
-		options: ['1', '2', '3']
+		type: 'checkbox',
+		other: true,
+		options: ['abc', 'def', 'ghi'],
+		value: 'abc,def,ghi'
 	}
 };
 

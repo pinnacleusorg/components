@@ -2,6 +2,7 @@
 	import Label from './Label.svelte';
 	import OptionCheckbox from './OptionCheckbox.svelte';
 	import OptionRadio from './OptionRadio.svelte';
+	import OptionText from './OptionText.svelte';
 
 	// Displayed label text
 	export let label: string;
@@ -10,6 +11,8 @@
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Type of options to show
 	export let type: 'checkbox' | 'radio' = 'checkbox';
+	// Show a customizable other option
+	export let other: boolean = false;
 	// Values to show for options
 	export let options: string[] = [];
 	// Initial set value (1-way binding) as CSV
@@ -17,10 +20,27 @@
 
 	export let active = false;
 
-	// backing datastore for the input
-	let lines = options.map((o) => value.split(',').includes(o));
-	let group = value;
-	$: data = (type === 'checkbox' ? options.filter((_, i) => lines[i]) : [group]) || [];
+	// backing datastore for checkbox type options
+	let otherVal = value
+		.split(',')
+		.filter((o) => !options.includes(o))
+		.join(',');
+	$: otherValIndex = options.length;
+	$: otherValExists = !!otherVal;
+	let lines = options.map((o) => value.split(',').includes(o)).concat([!!otherVal]);
+
+	// backing datastore for radio type options
+	let group = otherVal.length > 0 ? otherVal : value;
+
+	// reactively builds the data. this gets submitted
+	$: data = buildData(lines, otherVal, group);
+	function buildData(lines: boolean[], otherVal: string, group: string): string[] {
+		if (type === 'radio') return [group];
+
+		const checkedOptions = options.filter((_, i) => lines[i]);
+		if (otherVal && lines[lines.length - 1]) checkedOptions.push(otherVal);
+		return checkedOptions;
+	}
 </script>
 
 <div class="input">
@@ -33,8 +53,31 @@
 				<OptionRadio id="{id}-{i}" {label} {name} value={label} bind:group />
 			{/if}
 		{/each}
+		{#if other}
+			{#if type === 'checkbox'}
+				<OptionText
+					id="{id}-other"
+					{name}
+					{type}
+					label="Other"
+					placeholder="Type an option here"
+					bind:checked={lines[otherValIndex]}
+					bind:value={otherVal}
+				/>
+			{:else if type === 'radio'}
+				<OptionText
+					id="{id}-other"
+					{name}
+					{type}
+					label="Other"
+					placeholder="Type an option here"
+					bind:checked={otherValExists}
+					bind:value={group}
+				/>
+			{/if}
+		{/if}
 	</div>
-	<input type="hidden" {id} {name} value={data.join(', ')} />
+	<input type="hidden" {id} {name} value={data.join(',')} />
 </div>
 
 <style lang="scss">

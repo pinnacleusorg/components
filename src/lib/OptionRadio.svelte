@@ -5,11 +5,13 @@
 	export let id: string;
 	export let label: string;
 	export let name: string;
+	export let value = id;
+	export let group: string = '';
 </script>
 
 <label for={id}>
-	<input {id} {name} type="radio" value={id} required />
-	<span>{label}</span>
+	<input {id} {name} type="radio" {value} bind:group required />
+	<span>{label} {group}</span>
 	<span class="checked"><Checked /></span>
 	<span class="checknt"><Checknt /></span>
 </label>

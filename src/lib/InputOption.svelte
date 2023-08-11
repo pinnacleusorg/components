@@ -48,16 +48,16 @@
 	<div>
 		{#each options as label, i}
 			{#if type === 'checkbox'}
-				<OptionCheckbox id="{id}-{i}" {label} {name} bind:checked={lines[i]} />
+				<OptionCheckbox id="{id}-{i}" {label} name="{name}-{i}" bind:checked={lines[i]} />
 			{:else if type === 'radio'}
-				<OptionRadio id="{id}-{i}" {label} {name} value={label} bind:group />
+				<OptionRadio id="{id}-{i}" {label} name="{name}-radio" value={label} bind:group />
 			{/if}
 		{/each}
 		{#if other}
 			{#if type === 'checkbox'}
 				<OptionText
 					id="{id}-other"
-					{name}
+					name="{name}-other"
 					{type}
 					label="Other"
 					placeholder="Type an option here"
@@ -67,7 +67,7 @@
 			{:else if type === 'radio'}
 				<OptionText
 					id="{id}-other"
-					{name}
+					name="{name}-radio"
 					{type}
 					label="Other"
 					placeholder="Type an option here"

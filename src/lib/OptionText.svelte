@@ -5,12 +5,20 @@
 	export let id: string;
 	export let label: string;
 	export let name: string;
+	export let type: 'checkbox' | 'radio' = 'radio';
 	export let placeholder: string;
-	let value: string;
+
+	export let checked: boolean = false;
+	export let value: string = '';
+
+	function change(e: Event) {
+		checked = (e.target as HTMLInputElement).checked;
+		if (checked) value = '';
+	}
 </script>
 
 <label for={id}>
-	<input {id} {name} type="radio" bind:value />
+	<input {id} {name} {type} {value} {checked} on:change={change} />
 	<input type="text" bind:value {placeholder} />
 	<span class="content">{label}</span>
 	<span class="under" />
@@ -41,7 +49,8 @@
 		}
 	}
 
-	input[type='radio'] {
+	input[type='radio'],
+	input[type='checkbox'] {
 		position: absolute;
 		left: -2000px;
 

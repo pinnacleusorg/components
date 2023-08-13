@@ -58,7 +58,7 @@
 			/>
 		{/each}
 	</div>
-	<input type="hidden" {id} {name} value={showLines.join(', ')} />
+	<input type="hidden" {id} {name} value={lines.join(', ')} />
 	<datalist id="{id}-datalist">
 		{#each suggestions as s}
 			<option value={s} />

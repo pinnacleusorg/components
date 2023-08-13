@@ -12,6 +12,8 @@
 	export let type = 'text';
 	// Is required
 	export let required = true;
+	// Is disabled
+	export let disabled = false;
 	// Initial set value (1-way binding)
 	export let value: string = '';
 
@@ -20,7 +22,7 @@
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
-	<input {id} {type} {name} {placeholder} {value} {required} />
+	<input {id} {type} {name} {placeholder} {value} {required} {disabled} />
 </div>
 
 <style lang="scss">

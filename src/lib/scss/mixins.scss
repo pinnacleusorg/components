@@ -32,6 +32,12 @@
 		&::placeholder {
 			color: transparentize($gold, 0.4);
 		}
+
+		&:disabled {
+			cursor: not-allowed;
+			color: transparentize($gold, 0.4);
+			border-color: transparentize($gold, 0.4);
+		}
 	}
 }
 

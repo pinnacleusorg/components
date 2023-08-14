@@ -21,7 +21,7 @@
 			<slot />
 		</select>
 	{:else}
-		<select {id} {name} required>
+		<select {id} {name} required {disabled}>
 			<slot />
 		</select>
 	{/if}

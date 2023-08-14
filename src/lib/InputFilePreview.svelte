@@ -115,7 +115,7 @@
 				iframe {
 					border-radius: 0.25rem;
 					filter: contrast(0.8);
-					height: 700px;
+					height: 500px;
 				}
 
 				img {
@@ -132,7 +132,7 @@
 			}
 
 			&.hasItem.isExpanded {
-				height: 700px;
+				height: 500px;
 			}
 
 			> span {

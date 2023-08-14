@@ -11,6 +11,8 @@
 	export let placeholder: string;
 	// Initial set value as data URL (1-way binding)
 	export let value: string = '';
+	// Allow preview expansion for non-images
+	export let expandable: boolean = false;
 
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	$: hasItem = val.length > 1;
@@ -69,7 +71,7 @@
 			<span class:isExpanded>
 				{fname}
 				<span class="spacer" />
-				{#if !isImage}
+				{#if !isImage && expandable}
 					<button aria-label="open larger preview" on:click={expandView}>
 						{#if isExpanded}↗{:else}↘{/if}
 					</button>

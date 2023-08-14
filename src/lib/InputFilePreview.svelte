@@ -133,6 +133,10 @@
 
 				&.isImage {
 					height: 360px;
+
+					> span {
+						bottom: 10px;
+					}
 				}
 			}
 
@@ -147,12 +151,12 @@
 				align-items: center;
 				column-gap: 1rem;
 				font-size: 0.9rem;
-				padding: 0.5rem 1rem;
+				padding: 0.5rem 0.8rem;
 				margin: 0 auto;
 				position: absolute;
-				bottom: 10px;
-				left: 10px;
-				right: 10px;
+				bottom: 20px;
+				left: 20px;
+				right: 20px;
 				z-index: 10;
 				transition-duration: 0.3s;
 

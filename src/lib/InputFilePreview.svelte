@@ -82,7 +82,7 @@
 				<div class="image-border" />
 				<img class="isImage" src={val} alt={placeholder} />
 			{:else}
-				<iframe src={val} title={placeholder} />
+				<iframe class:expandable src={val} title={placeholder} />
 			{/if}
 		{:else}
 			{placeholder}
@@ -118,6 +118,10 @@
 					border-radius: 0.25rem;
 					filter: contrast(0.8);
 					height: 500px;
+
+					&.expandable {
+						height: 500px;
+					}
 				}
 
 				img {

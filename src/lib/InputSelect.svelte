@@ -8,6 +8,8 @@
 	$: id = `${name}-${Math.round(Math.random() * 1e6)}`;
 	// Two-way binding for selected value
 	export let value: string = '';
+	// Is disabled
+	export let disabled = false;
 
 	export let active = false;
 </script>
@@ -15,7 +17,7 @@
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
 	{#if value}
-		<select {id} {name} bind:value required>
+		<select {id} {name} bind:value required {disabled}>
 			<slot />
 		</select>
 	{:else}

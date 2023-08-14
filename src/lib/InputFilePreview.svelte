@@ -111,13 +111,12 @@
 
 			&.hasItem {
 				transition-duration: 1s;
-				height: 350px;
+				height: 400px;
 				overflow: hidden;
 
 				iframe {
 					border-radius: 0.25rem;
 					filter: contrast(0.8);
-					height: 500px;
 
 					&.expandable {
 						height: 500px;

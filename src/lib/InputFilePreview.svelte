@@ -17,6 +17,7 @@
 
 	export let active = false;
 
+	let isExpanded = false;
 	$: isImage = accept === 'image/*';
 
 	$: fname = value ? 'Already Uploaded' : '';
@@ -45,18 +46,39 @@
 		(document.querySelector('#' + id) as HTMLElement).click();
 		return false;
 	}
+
+	function expandView(e: Event) {
+		e.stopPropagation();
+		isExpanded = !isExpanded;
+	}
 </script>
 
 <div class="input">
 	<Label forId={id} {active}>{label}</Label>
 	<input {id} type="file" {accept} on:change={translateFile} required={!hasItem} />
 	<input type="hidden" {name} bind:value={val} />
-	<button class="uploader" type="button" class:hasItem class:isImage on:click={openFileDialog}>
+	<button
+		class="uploader"
+		type="button"
+		class:hasItem
+		class:isExpanded
+		class:isImage
+		on:click={openFileDialog}
+	>
 		{#if val.length > 1}
-			<span>{fname} <b aria-label="replace with other file">✕</b></span>
+			<span class:isExpanded>
+				{fname}
+				<span class="spacer" />
+				{#if !isImage}
+					<button aria-label="open larger preview" on:click={expandView}>
+						{#if isExpanded}↗{:else}↘{/if}
+					</button>
+				{/if}
+				<b aria-label="replace with other file">✕</b>
+			</span>
 			{#if isImage}
 				<div class="image-border" />
-				<iframe class="isImage" src={val} title={placeholder} />
+				<img class="isImage" src={val} alt={placeholder} />
 			{:else}
 				<iframe src={val} title={placeholder} />
 			{/if}
@@ -77,6 +99,7 @@
 		.uploader {
 			background: none;
 			border: dashed 3px $gold;
+			cursor: pointer;
 			color: $gold;
 			height: 100px;
 			padding: 1rem;
@@ -87,45 +110,69 @@
 			&.hasItem {
 				transition-duration: 1s;
 				height: 350px;
+				overflow: hidden;
 
 				iframe {
-					filter: blur(2px);
+					border-radius: 0.25rem;
+					filter: contrast(0.8);
+					height: 700px;
 				}
 
-				span {
-					box-shadow: 0 0 1rem $bg;
+				img {
+					margin-bottom: 2.5rem;
+				}
+
+				> span {
+					box-shadow: 0 0.1rem 0.5rem $bg;
 				}
 
 				&.isImage {
-					height: 300px;
+					height: 360px;
 				}
 			}
 
-			span {
+			&.hasItem.isExpanded {
+				height: 700px;
+			}
+
+			> span {
 				background-color: $bg;
 				border-radius: 0.25rem;
 				display: flex;
 				align-items: center;
+				column-gap: 1rem;
 				font-size: 0.9rem;
 				padding: 0.5rem 1rem;
 				margin: 0 auto;
-				width: max-content;
 				position: absolute;
-				left: 0;
-				right: 0;
+				bottom: 10px;
+				left: 10px;
+				right: 10px;
 				z-index: 10;
+				transition-duration: 0.3s;
 
-				b {
-					background-color: $gold;
-					border-radius: 50%;
+				.spacer {
+					flex: 1 1;
+				}
+
+				b,
+				button {
+					box-sizing: border-box;
+					background-color: transparent;
+					border: 2px solid $gold;
+					border-radius: 30%;
 					color: $white;
 					display: grid;
 					place-items: center;
-					font-size: 0.7rem;
-					margin-left: 15px;
+					font-weight: bold;
+					font-size: 0.6rem;
 					padding: 5px;
-					height: 16px;
-					width: 16px;
+					min-height: 30px;
+					min-width: 30px;
+				}
+				b:hover,
+				button:hover {
+					background-color: $gold;
 				}
 			}
 
@@ -141,18 +188,17 @@
 				height: calc(100% - 1rem);
 				width: calc(100% - 1rem);
 				pointer-events: none;
+			}
 
-				&.isImage {
-					-webkit-clip-path: circle(50% at 50% 50%);
-					clip-path: circle(50% at 50% 50%);
-					width: 250px;
-					height: 250px;
-					margin: auto;
-				}
+			.isImage {
+				border: 3px solid $gold;
+				border-radius: 50%;
+				width: 250px;
+				height: 250px;
+				margin: auto;
 			}
 
 			.image-border {
-				background-color: $gold;
 				box-sizing: border-box;
 				position: absolute;
 				top: 0;

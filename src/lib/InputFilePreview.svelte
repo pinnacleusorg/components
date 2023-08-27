@@ -5,6 +5,8 @@
 	export let accept = 'application/pdf';
 	// Displayed label text
 	export let label: string;
+	// Show the label or not
+	export let showLabel: boolean = true;
 	// Name in form data
 	export let name: string;
 	// Displayed placeholder text, pre-upload
@@ -56,7 +58,9 @@
 </script>
 
 <div class="input">
-	<Label forId={id} {active}>{label}</Label>
+	{#if showLabel}
+		<Label forId={id} {active}>{label}</Label>
+	{/if}
 	<input {id} type="file" {accept} on:change={translateFile} required={!hasItem} />
 	<input type="hidden" {name} bind:value={val} />
 	<button

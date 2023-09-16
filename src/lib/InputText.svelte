@@ -29,4 +29,7 @@
 	.input {
 		@include input;
 	}
+	input::-webkit-calendar-picker-indicator {
+		display: none;
+	}
 </style>

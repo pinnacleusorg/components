@@ -119,7 +119,6 @@
 				overflow: hidden;
 
 				iframe {
-					border-radius: 0.25rem;
 					filter: contrast(0.8);
 
 					&.expandable {
@@ -150,7 +149,6 @@
 
 			> span {
 				background-color: $bg;
-				border-radius: 0.25rem;
 				display: flex;
 				align-items: center;
 				column-gap: 1rem;
@@ -173,7 +171,6 @@
 					box-sizing: border-box;
 					background-color: transparent;
 					border: 2px solid $gold;
-					border-radius: 30%;
 					color: $white;
 					display: grid;
 					place-items: center;

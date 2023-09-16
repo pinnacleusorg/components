@@ -23,7 +23,7 @@
 		flex-direction: row-reverse;
 		align-items: center;
 		justify-content: flex-end;
-		column-gap: 20px;
+		column-gap: 25px;
 
 		padding: 15px 0;
 		user-select: none;
@@ -33,6 +33,7 @@
 			display: grid;
 			place-items: center;
 			width: 20px;
+			min-width: 20px;
 		}
 	}
 
